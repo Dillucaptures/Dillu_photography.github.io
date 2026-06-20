@@ -1,1552 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Dillu Captures | Luxury Photography</title>
+<meta name="description" content="Luxury photography by Dillu Captures">
 
-<meta name="description"
-content="Premium maternity, kids, family and cultural photography by Dillu Captures. Cinematic storytelling through timeless photography.">
-
-<meta name="theme-color" content="#0a0a0a">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  
-.services-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-margin-top:70px;
-}
-
-.service-card{
-padding:40px;
-border-radius:32px;
-transition:.5s;
-}
-
-.service-card:hover{
-transform:translateY(-12px);
-}
-
-.service-icon{
-font-size:2rem;
-margin-bottom:20px;
-}
-
-.service-card h3{
-margin-bottom:15px;
-font-size:1.3rem;
-}
-
-.service-card p{
-color:var(--muted);
-line-height:1.8;
-}
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:center;
-}
-
-.about-image img{
-width:100%;
-border-radius:32px;
-display:block;
-}
-
-.about-tag{
-color:var(--gold);
-font-weight:600;
-text-transform:uppercase;
-letter-spacing:.15em;
-}
-
-.about-content h2{
-font-family:'Playfair Display',serif;
-font-size:4rem;
-margin:20px 0;
-line-height:1;
-}
-
-.about-content p{
-margin-bottom:20px;
-color:var(--muted);
-line-height:1.9;
-}
-
-.about-content blockquote{
-margin-top:30px;
-font-size:1.4rem;
-font-style:italic;
-border-left:3px solid var(--gold);
-padding-left:20px;
-}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-}
-
-.stat-card{
-padding:50px;
-text-align:center;
-border-radius:32px;
-}
-
-.stat-card h3{
-font-size:4rem;
-font-family:'Playfair Display';
-}
-
-.portfolio-filter{
-display:flex;
-justify-content:center;
-gap:15px;
-margin:60px 0;
-flex-wrap:wrap;
-}
-
-.filter-btn{
-padding:12px 24px;
-border-radius:100px;
-border:none;
-cursor:pointer;
-background:var(--surface);
-color:var(--text);
-}
-
-.filter-btn.active{
-background:var(--text);
-color:var(--bg);
-}
-
-.masonry-grid{
-columns:3 320px;
-column-gap:25px;
-}
-
-.gallery-item{
-position:relative;
-margin-bottom:25px;
-overflow:hidden;
-border-radius:28px;
-cursor:pointer;
-break-inside:avoid;
-}
-
-.gallery-item img{
-width:100%;
-display:block;
-transition:1s;
-}
-
-.gallery-item:hover img{
-transform:scale(1.08);
-}
-
-.overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:flex-end;
-padding:30px;
-background:linear-gradient(
-transparent,
-rgba(0,0,0,.7)
-);
-opacity:0;
-transition:.4s;
-}
-
-.gallery-item:hover .overlay{
-opacity:1;
-}
-
-.overlay h4{
-color:white;
-font-size:1.2rem;
-}
-
 :root{
-
---bg:#faf8f5;
---surface:#ffffff;
---surface-2:#f5f5f7;
-
---text:#0f0f10;
---muted:#666666;
-
---gold:#c8a96b;
---gold-light:#e8d5a9;
-
---accent:#8b5cf6;
-
---glass:rgba(255,255,255,.55);
---glass-border:rgba(255,255,255,.18);
-
---shadow:
-0 20px 40px rgba(0,0,0,.08);
-
---radius:32px;
-
---transition:
-all .6s cubic-bezier(.16,1,.3,1);
-
+--bg:#faf8f5;--surface:#fff;--text:#111;--muted:#666;--gold:#c8a96b;
+--glass:rgba(255,255,255,.65);
 }
-
 body.dark{
-
---bg:#090909;
---surface:#121212;
---surface-2:#181818;
-
---text:#ffffff;
---muted:#a0a0a0;
-
---glass:rgba(20,20,20,.55);
---glass-border:rgba(255,255,255,.08);
-
---shadow:
-0 20px 60px rgba(0,0,0,.4);
-
+--bg:#090909;--surface:#151515;--text:#fff;--muted:#aaa;
+--glass:rgba(20,20,20,.65);
 }
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:initial;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-
-overflow-x:hidden;
-
--webkit-font-smoothing:antialiased;
--moz-osx-font-smoothing:grayscale;
-
-transition:
-background .4s ease,
-color .4s ease;
-
+font-family:Inter,sans-serif;background:var(--bg);color:var(--text);
+transition:.6s;background-image:radial-gradient(circle at top left,rgba(200,169,107,.12),transparent 30%);
 }
-
-/* ==========================
-   BACKGROUND EFFECTS
-========================== */
-
-.bg-orb{
-
-position:fixed;
-
-width:600px;
-height:600px;
-
-border-radius:50%;
-
-filter:blur(120px);
-
-opacity:.18;
-
-pointer-events:none;
-
-z-index:-1;
-
-}
-
-.orb1{
-background:#8b5cf6;
-top:-200px;
-left:-200px;
-}
-
-.orb2{
-background:#c8a96b;
-bottom:-200px;
-right:-200px;
-}
-
-/* ==========================
-   GLOBAL
-========================== */
-
-.container{
-
-width:min(1400px,92%);
-margin:auto;
-
-}
-
-.section{
-
-padding:140px 0;
-
-}
-
-.section-title{
-
-font-family:'Playfair Display',serif;
-
-font-size:clamp(2.5rem,5vw,5rem);
-
-line-height:1;
-
-letter-spacing:-0.04em;
-
-margin-bottom:24px;
-
-text-align:center;
-
-}
-
-.section-subtitle{
-
-max-width:700px;
-
-margin:auto;
-
-text-align:center;
-
-font-size:1.1rem;
-
-color:var(--muted);
-
-line-height:1.8;
-
-}
-
-/* ==========================
-   GLASS
-========================== */
-
-.glass{
-
-background:var(--glass);
-
-backdrop-filter:blur(30px);
-
--webkit-backdrop-filter:blur(30px);
-
-border:1px solid var(--glass-border);
-
-box-shadow:var(--shadow);
-
-}
-
-/* ==========================
-   NAVBAR
-========================== */
-
 header{
-
-position:fixed;
-
-top:20px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:min(1400px,92%);
-
-height:78px;
-
-border-radius:100px;
-
-z-index:1000;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 30px;
-
+position:fixed;top:20px;left:50%;transform:translateX(-50%);
+width:min(1200px,92%);padding:16px 24px;border-radius:60px;
+backdrop-filter:blur(20px);background:var(--glass);z-index:999;
+display:flex;justify-content:space-between;align-items:center;
 }
-
-.logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-font-weight:700;
-
-letter-spacing:.35em;
-
+nav{display:flex;gap:20px}
+nav a{text-decoration:none;color:var(--text)}
+.theme-btn{width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;transition:.6s}
+.theme-btn:hover{transform:rotate(180deg)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 5%}
+.hero h1{font-family:'Playfair Display',serif;font-size:min(9vw,6rem)}
+.hero p{max-width:700px;margin:20px 0;color:var(--muted)}
+.btn{display:inline-block;padding:16px 28px;border-radius:999px;text-decoration:none;background:var(--text);color:var(--bg);margin:8px;transition:.4s}
+.btn:hover{transform:translateY(-4px)}
+.section{padding:100px 5%}
+.title{text-align:center;font-family:'Playfair Display';font-size:3rem;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.card,.gallery-item,.testimonial,.price{
+background:var(--surface);padding:24px;border-radius:24px;
+opacity:0;transform:translateY(40px);transition:1s;
 }
-
-nav{
-
-display:flex;
-gap:32px;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:var(--text);
-
-font-size:.9rem;
-
-font-weight:500;
-
-opacity:.75;
-
-transition:var(--transition);
-
-}
-
-nav a:hover{
-
-opacity:1;
-
-transform:translateY(-2px);
-
-}
-
-.nav-actions{
-
-display:flex;
-align-items:center;
-gap:16px;
-
-}
-
-.theme-btn{
-
-width:44px;
-height:44px;
-
-border-radius:50%;
-
-border:none;
-
-cursor:pointer;
-
-background:var(--surface);
-
-color:var(--text);
-
-font-size:1rem;
-
-}
-
-.book-btn{
-
-padding:14px 26px;
-
-border-radius:100px;
-
-background:var(--text);
-
-color:var(--bg);
-
-text-decoration:none;
-
-font-size:.85rem;
-font-weight:600;
-
-transition:var(--transition);
-
-}
-
-.book-btn:hover{
-
-transform:translateY(-4px);
-
-}
-
-/* ==========================
-   HERO
-========================== */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-align-items:center;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.hero-grid{
-
-display:grid;
-
-grid-template-columns:
-1.1fr 1fr;
-
-gap:80px;
-
-align-items:center;
-
-}
-
-.hero-tag{
-
-display:inline-flex;
-
-padding:12px 22px;
-
-border-radius:100px;
-
-margin-bottom:30px;
-
-font-size:.8rem;
-
-font-weight:600;
-
-letter-spacing:.08em;
-
-text-transform:uppercase;
-
-}
-
-.hero h1{
-
-font-family:'Playfair Display',serif;
-
-font-size:clamp(4rem,8vw,8rem);
-
-line-height:.9;
-
-letter-spacing:-.06em;
-
-margin-bottom:30px;
-
-}
-
-.hero p{
-
-font-size:1.15rem;
-
-line-height:1.9;
-
-color:var(--muted);
-
-max-width:650px;
-
-margin-bottom:40px;
-
-}
-
-.hero-buttons{
-
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-
-}
-
-.btn-primary{
-
-padding:18px 34px;
-
-background:var(--text);
-
-color:var(--bg);
-
-text-decoration:none;
-
-border-radius:100px;
-
-font-weight:600;
-
-transition:var(--transition);
-
-}
-
-.btn-primary:hover{
-
-transform:translateY(-5px);
-
-}
-
-.btn-secondary{
-
-padding:18px 34px;
-
-border-radius:100px;
-
-text-decoration:none;
-
-color:var(--text);
-
-border:1px solid rgba(0,0,0,.1);
-
-}
-
-.hero-images{
-
-position:relative;
-
-height:700px;
-
-}
-
-.hero-card{
-
-position:absolute;
-
-border-radius:32px;
-
-overflow:hidden;
-
-box-shadow:var(--shadow);
-
-}
-
-.hero-card img{
-
-width:100%;
-height:100%;
-object-fit:cover;
-
-display:block;
-
-}
-
-.card-1{
-
-width:380px;
-height:520px;
-
-top:0;
-left:0;
-
-}
-
-.card-2{
-
-width:260px;
-height:360px;
-
-right:20px;
-top:100px;
-
-}
-
-.card-3{
-
-width:280px;
-height:220px;
-
-bottom:20px;
-left:80px;
-
-}
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media(max-width:1000px){
-
-nav{
-display:none;
-}
-
-.hero-grid{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.hero p{
-
-margin-left:auto;
-margin-right:auto;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
-
-}
-
-.hero-images{
-
-height:500px;
-
-margin-top:50px;
-
-}
-
-.card-1{
-width:260px;
-height:360px;
-}
-
-.card-2{
-width:180px;
-height:240px;
-}
-
-.card-3{
-width:200px;
-height:160px;
-}
-
-}
-<style>
-
-.testimonial-grid,
-.pricing-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:60px;
-}
-
+.show{opacity:1;transform:none}
+.gallery-item img{width:100%;border-radius:18px}
+.filter{text-align:center;margin:30px 0}
+.filter button{padding:10px 20px;margin:5px;border:none;border-radius:999px;cursor:pointer}
+.faq-item{margin:12px 0;background:var(--surface);border-radius:16px;overflow:hidden}
+.faq-question{width:100%;padding:18px;border:none;background:none;text-align:left;color:var(--text);cursor:pointer}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 18px}
+footer{text-align:center;padding:50px}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;text-decoration:none;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
+@media(max-width:768px){nav{display:none}}
 </style>
 </head>
-
 <body>
 
-<div class="bg-orb orb1"></div>
-<div class="bg-orb orb2"></div>
-
-<header class="glass">
-
-<div class="logo">
-DILLU CAPTURES
-</div>
-
+<header>
+<div><b>DILLU CAPTURES</b></div>
 <nav>
-
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#about">About</a>
-<a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-
 </nav>
-
-<div class="nav-actions">
-
-<button class="theme-btn" id="themeBtn">
-☀
-</button>
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="book-btn">
-
-Book Session
-
-</a>
-
-</div>
-
+<button class="theme-btn" id="themeBtn">☀️</button>
 </header>
 
 <section class="hero">
-
-<div class="container">
-
-<div class="hero-grid">
-
 <div>
-
-<div class="hero-tag glass">
-
-Luxury Cinematic Photography
-
+<h1>Capturing Stories, Not Just Photographs.</h1>
+<p>Luxury maternity, kids, family and cultural photography with cinematic storytelling.</p>
+<a class="btn" href="#portfolio">View Portfolio</a>
+<a class="btn" href="https://wa.me/919700034138">Book Session</a>
 </div>
-
-<h1>
-
-Capturing Stories,
-Not Just
-Photographs.
-
-</h1>
-
-<p>
-
-Premium maternity, kids, family and cultural
-photography designed to preserve life's most
-meaningful moments through timeless cinematic
-storytelling.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#portfolio"
-class="btn-primary">
-
-View Portfolio
-
-</a>
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="btn-secondary">
-
-Book on WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-images">
-
-<div class="hero-card card-1">
-<img src="images/hero-1.webp" alt="">
-</div>
-
-<div class="hero-card card-2">
-<img src="images/hero-2.webp" alt="">
-</div>
-
-<div class="hero-card card-3">
-<img src="images/hero-3.webp" alt="">
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-<!-- ==========================
-     SERVICES
-========================== -->
 
 <section id="services" class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Photography Services
-</h2>
-
-<p class="section-subtitle">
-
-Tailored photography experiences crafted to preserve
-your most meaningful moments with elegance and emotion.
-
-</p>
-
-<div class="services-grid">
-
-<div class="service-card glass">
-
-<div class="service-icon">👶</div>
-
-<h3>Kids Photography</h3>
-
-<p>
-Playful, vibrant and emotional portraits that celebrate
-the magic of childhood.
-</p>
-
+<h2 class="title">Services</h2>
+<div class="grid">
+<div class="card">👶 Kids Photography</div>
+<div class="card">🤰 Maternity Sessions</div>
+<div class="card">👨‍👩‍👧 Family Portraits</div>
+<div class="card">🏛️ Temple & Culture</div>
 </div>
-
-<div class="service-card glass">
-
-<div class="service-icon">🤰</div>
-
-<h3>Maternity Sessions</h3>
-
-<p>
-Elegant maternity storytelling designed to preserve
-the beauty of motherhood.
-</p>
-
-</div>
-
-<div class="service-card glass">
-
-<div class="service-icon">👨‍👩‍👧</div>
-
-<h3>Family Portraits</h3>
-
-<p>
-Timeless family memories captured with warmth,
-emotion and authenticity.
-</p>
-
-</div>
-
-<div class="service-card glass">
-
-<div class="service-icon">🏛️</div>
-
-<h3>Temple & Culture</h3>
-
-<p>
-Preserving traditions, spirituality and cultural heritage
-through cinematic imagery.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-
-<!-- ==========================
-     ABOUT
-========================== -->
 
 <section id="about" class="section">
-
-<div class="container">
-
-<div class="about-grid">
-
-<div class="about-image">
-
-<img
-src="images/profile.webp"
-alt="Dillu Captures">
-
+<h2 class="title">About Dillu Captures</h2>
+<div class="card show">
+Creating timeless photographs that preserve emotions and memories.
 </div>
-
-<div class="about-content">
-
-<span class="about-tag">
-The Artist
-</span>
-
-<h2>
-
-Crafting Visual
-Stories That Last
-Forever.
-
-</h2>
-
-<p>
-
-Photography is more than taking pictures.
-It's about preserving emotion, atmosphere,
-and the feeling of a moment long after it has passed.
-
-</p>
-
-<p>
-
-Based in Hyderabad, Dillu Captures specializes in
-luxury maternity, kids, family and cultural photography,
-blending artistic vision with cinematic storytelling.
-
-</p>
-
-<blockquote>
-
-"I don't just take photographs —
-I preserve emotions."
-
-</blockquote>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-
-<!-- ==========================
-     STATS
-========================== -->
-
-<section class="section stats-section">
-
-<div class="container">
-
-<div class="stats-grid">
-
-<div class="stat-card glass">
-
-<h3 class="counter"
-data-target="500">
-0
-</h3>
-
-<p>
-Happy Clients
-</p>
-
-</div>
-
-<div class="stat-card glass">
-
-<h3 class="counter"
-data-target="1000">
-0
-</h3>
-
-<p>
-Photoshoots Completed
-</p>
-
-</div>
-
-<div class="stat-card glass">
-
-<h3 class="counter"
-data-target="5">
-0
-</h3>
-
-<p>
-Years Experience
-</p>
-
-</div>
-
-<div class="stat-card glass">
-
-<h3 class="counter"
-data-target="100">
-0
-</h3>
-
-<p>
-Premium Projects
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================
-     PORTFOLIO
-========================== -->
 
 <section id="portfolio" class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-Curated Portfolio
-
-</h2>
-
-<p class="section-subtitle">
-
-A collection of carefully crafted stories,
-captured through light, emotion and perspective.
-
-</p>
-
-<div class="portfolio-filter">
-
-<button class="filter-btn active"
-data-filter="all">
-
-All
-
-</button>
-
-<button class="filter-btn"
-data-filter="kids">
-
-Kids
-
-</button>
-
-<button class="filter-btn"
-data-filter="maternity">
-
-Maternity
-
-</button>
-
-<button class="filter-btn"
-data-filter="family">
-
-Family
-
-</button>
-
-<button class="filter-btn"
-data-filter="culture">
-
-Culture
-
-</button>
-
+<h2 class="title">Portfolio</h2>
+<div class="filter">
+<button class="filter-btn" data-filter="all">All</button>
+<button class="filter-btn" data-filter="kids">Kids</button>
+<button class="filter-btn" data-filter="maternity">Maternity</button>
 </div>
-
-<div class="masonry-grid">
-
-<div class="gallery-item kids">
-
-<img src="images/kids/kid1.webp">
-
-<div class="overlay">
-
-<h4>Kids Photography</h4>
-
+<div class="grid">
+<div class="gallery-item kids"><img src="https://picsum.photos/600/800?1"></div>
+<div class="gallery-item maternity"><img src="https://picsum.photos/600/800?2"></div>
+<div class="gallery-item kids"><img src="https://picsum.photos/600/800?3"></div>
 </div>
-
-</div>
-
-<div class="gallery-item maternity">
-
-<img src="images/maternity/m1.webp">
-
-<div class="overlay">
-
-<h4>Maternity Session</h4>
-
-</div>
-
-</div>
-
-<div class="gallery-item culture">
-
-<img src="images/culture/c1.webp">
-
-<div class="overlay">
-
-<h4>Temple & Culture</h4>
-
-</div>
-
-</div>
-
-<div class="gallery-item family">
-
-<img src="images/family/f1.webp">
-
-<div class="overlay">
-
-<h4>Family Portrait</h4>
-
-</div>
-
-</div>
-
-<div class="gallery-item kids">
-
-<img src="images/kids/kid2.webp">
-
-<div class="overlay">
-
-<h4>Kids Session</h4>
-
-</div>
-
-</div>
-
-<div class="gallery-item maternity">
-
-<img src="images/maternity/m2.webp">
-
-<div class="overlay">
-
-<h4>Motherhood Story</h4>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-<!-- =========================================
-TESTIMONIALS
-========================================= -->
-
-<section id="reviews" class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Client Experiences
-</h2>
-
-<p class="section-subtitle">
-Every photograph tells a story. Here are a few words from the families who trusted Dillu Captures with their memories.
-</p>
-
-<div class="testimonial-grid">
-
-<div class="testimonial-card glass">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"Dillu transformed our maternity shoot into something magical.
-Every image felt cinematic and emotional."
-</p>
-
-<h4>Priya & Rajesh</h4>
-
-</div>
-
-<div class="testimonial-card glass">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"Our daughter's photos were absolutely beautiful.
-The experience was comfortable and professional."
-</p>
-
-<h4>Sravani</h4>
-
-</div>
-
-<div class="testimonial-card glass">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"The temple photography was breathtaking.
-Every frame captured the spiritual atmosphere perfectly."
-</p>
-
-<h4>Venkatesh</h4>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================
-PRICING
-========================================= -->
-
-<section id="pricing" class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Photography Packages
-</h2>
-
-<p class="section-subtitle">
-Simple, transparent pricing tailored to your story.
-</p>
-
-<div class="pricing-grid">
-
-<div class="pricing-card glass">
-
-<h3>Kids Session</h3>
-
-<div class="price">
-₹4,999
-</div>
-
-<ul>
-<li>1 Hour Session</li>
-<li>20 Edited Images</li>
-<li>Online Delivery</li>
-<li>Premium Retouching</li>
-</ul>
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="btn-primary">
-
-Book Session
-
-</a>
-
-</div>
-
-<div class="pricing-card glass featured">
-
-<div class="featured-badge">
-POPULAR
-</div>
-
-<h3>Maternity Session</h3>
-
-<div class="price">
-₹8,999
-</div>
-
-<ul>
-<li>2 Hour Session</li>
-<li>40 Edited Images</li>
-<li>Creative Direction</li>
-<li>Premium Retouching</li>
-</ul>
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="btn-primary">
-
-Book Session
-
-</a>
-
-</div>
-
-<div class="pricing-card glass">
-
-<h3>Family Session</h3>
-
-<div class="price">
-₹6,999
-</div>
-
-<ul>
-<li>90 Minute Session</li>
-<li>30 Edited Images</li>
-<li>Online Gallery</li>
-<li>Premium Editing</li>
-</ul>
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="btn-primary">
-
-Book Session
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================
-FAQ
-========================================= -->
-
-<section id="faq" class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Frequently Asked Questions
-</h2>
-
-<div class="faq-container">
-
-<div class="faq-item glass">
-<button class="faq-question">
-How do I book a session?
-<span>+</span>
-</button>
-
-<div class="faq-answer">
-<p>
-Simply contact us through WhatsApp and we'll guide you through the process.
-</p>
-</div>
-</div>
-
-<div class="faq-item glass">
-<button class="faq-question">
-Do you travel outside Hyderabad?
-<span>+</span>
-</button>
-
-<div class="faq-answer">
-<p>
-Yes. Travel charges may apply depending on the location.
-</p>
-</div>
-</div>
-
-<div class="faq-item glass">
-<button class="faq-question">
-How long does delivery take?
-<span>+</span>
-</button>
-
-<div class="faq-answer">
-<p>
-Most sessions are delivered within 7–14 working days.
-</p>
-</div>
-</div>
-
-<div class="faq-item glass">
-<button class="faq-question">
-Can I choose my photos?
-<span>+</span>
-</button>
-
-<div class="faq-answer">
-<p>
-Yes, you'll receive a preview gallery for selection.
-</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================
-BOOKING CTA
-========================================= -->
-
-<section id="contact" class="section booking-section">
-
-<div class="container">
-
-<div class="booking-card glass">
-
-<h2>
-Let's Create Something Beautiful Together
-</h2>
-
-<p>
-Reserve your session today and preserve memories that will last forever.
-</p>
-
-<div class="booking-buttons">
-
-<a href="https://wa.me/919700034138"
-target="_blank"
-class="btn-primary">
-
-Book via WhatsApp
-
-</a>
-
-<a href="https://www.instagram.com/dillu_captures/"
-target="_blank"
-class="btn-secondary">
-
-View Instagram
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================
-INSTAGRAM
-========================================= -->
 
 <section class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Follow The Journey
-</h2>
-
-<p class="section-subtitle">
-Follow Dillu Captures on Instagram for the latest stories, sessions and behind-the-scenes moments.
-</p>
-
-<div style="text-align:center;margin-top:40px;">
-
-<a href="https://www.instagram.com/dillu_captures/"
-target="_blank"
-class="btn-primary">
-
-Follow @dillu_captures
-
-</a>
-
+<h2 class="title">Testimonials</h2>
+<div class="grid">
+<div class="testimonial">★★★★★ Amazing experience.</div>
+<div class="testimonial">★★★★★ Beautiful storytelling.</div>
+<div class="testimonial">★★★★★ Highly recommended.</div>
 </div>
-
-</div>
-
 </section>
 
-<!-- =========================================
-FOOTER
-========================================= -->
-
-<footer class="footer">
-
-<div class="container">
-
-<div class="footer-content">
-
-<h3>DILLU CAPTURES</h3>
-
-<p>
-Luxury Photography • Cinematic Storytelling
-</p>
-
-<div class="footer-links">
-
-<a href="#services">Services</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-
+<section class="section">
+<h2 class="title">FAQ</h2>
+<div class="faq-item">
+<button class="faq-question">How do I book?</button>
+<div class="faq-answer"><p>Contact via WhatsApp.</p></div>
 </div>
-
-<p class="copyright">
-© 2026 Dillu Captures. All Rights Reserved.
-</p>
-
+<div class="faq-item">
+<button class="faq-question">Do you travel?</button>
+<div class="faq-answer"><p>Yes, travel charges may apply.</p></div>
 </div>
+</section>
 
-</div>
+<section id="contact" class="section">
+<h2 class="title">Book Your Session</h2>
+<p style="text-align:center"><a class="btn" href="https://wa.me/919700034138">WhatsApp Booking</a></p>
+</section>
 
-</footer>
+<footer>© 2026 Dillu Captures</footer>
+<a class="whatsapp" href="https://wa.me/919700034138">💬</a>
 
-<!-- =========================================
-FLOATING WHATSAPP
-========================================= -->
+<script>
+const themeBtn=document.getElementById('themeBtn');
+if(localStorage.theme==='dark'){document.body.classList.add('dark');themeBtn.textContent='🌙';}
+themeBtn.onclick=()=>{
+document.body.classList.toggle('dark');
+const d=document.body.classList.contains('dark');
+themeBtn.textContent=d?'🌙':'☀️';
+localStorage.theme=d?'dark':'light';
+};
 
-<a
-href="https://wa.me/919700034138"
-target="_blank"
-class="floating-whatsapp">
+document.querySelectorAll('.faq-question').forEach(btn=>{
+btn.onclick=()=>{
+const a=btn.nextElementSibling;
+a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';
+};
+});
 
-💬
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.onclick=()=>{
+const f=btn.dataset.filter;
+document.querySelectorAll('.gallery-item').forEach(i=>{
+i.style.display=(f==='all'||i.classList.contains(f))?'block':'none';
+});
+};
+});
 
-</a>
+const io=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});
+},{threshold:.15});
+
+document.querySelectorAll('.card,.gallery-item,.testimonial,.price').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
