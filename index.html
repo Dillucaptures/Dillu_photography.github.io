@@ -9,6 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+  <style>
+
+/* all your existing CSS */
+
+@media(max-width:1000px){
+
+nav{
+display:none;
+}
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+/* more mobile CSS */
+
+}
 
 /* ===== BASE ===== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -359,7 +376,524 @@ const observer=new IntersectionObserver(entries=>{
 
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el))
 
-</script>
+service-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+margin-top:70px;
+}
 
-</body>
-</html>
+.service-card{
+padding:40px;
+border-radius:32px;
+transition:.5s;
+}
+
+.service-card:hover{
+transform:translateY(-12px);
+}
+
+.service-icon{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.service-card h3{
+margin-bottom:15px;
+font-size:1.3rem;
+}
+
+.service-card p{
+color:var(--muted);
+line-height:1.8;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+.about-image img{
+width:100%;
+border-radius:32px;
+display:block;
+}
+
+.about-tag{
+color:var(--gold);
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:.15em;
+}
+
+.about-content h2{
+font-family:'Playfair Display',serif;
+font-size:4rem;
+margin:20px 0;
+line-height:1;
+}
+
+.about-content p{
+margin-bottom:20px;
+color:var(--muted);
+line-height:1.9;
+}
+
+.about-content blockquote{
+margin-top:30px;
+font-size:1.4rem;
+font-style:italic;
+border-left:3px solid var(--gold);
+padding-left:20px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.stat-card{
+padding:50px;
+text-align:center;
+border-radius:32px;
+}
+
+.stat-card h3{
+font-size:4rem;
+font-family:'Playfair Display';
+}
+
+.portfolio-filter{
+display:flex;
+justify-content:center;
+gap:15px;
+margin:60px 0;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+padding:12px 24px;
+border-radius:100px;
+border:none;
+cursor:pointer;
+background:var(--surface);
+color:var(--text);
+}
+
+.filter-btn.active{
+background:var(--text);
+color:var(--bg);
+}
+
+.masonry-grid{
+columns:3 320px;
+column-gap:25px;
+}
+
+.gallery-item{
+position:relative;
+margin-bottom:25px;
+overflow:hidden;
+border-radius:28px;
+cursor:pointer;
+break-inside:avoid;
+}
+
+.gallery-item img{
+width:100%;
+display:block;
+transition:1s;
+}
+
+.gallery-item:hover img{
+transform:scale(1.08);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:flex-end;
+padding:30px;
+background:linear-gradient(
+transparent,
+rgba(0,0,0,.7)
+);
+opacity:0;
+transition:.4s;
+}
+
+.gallery-item:hover .overlay{
+opacity:1;
+}
+
+.overlay h4{
+color:white;
+font-size:1.2rem;
+}
+</section>  
+
+  <!-- =========================================
+TESTIMONIALS
+========================================= -->
+
+<section id="reviews" class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+Client Experiences
+</h2>
+
+<p class="section-subtitle">
+Every photograph tells a story. Here are a few words from the families who trusted Dillu Captures with their memories.
+</p>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card glass">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"Dillu transformed our maternity shoot into something magical.
+Every image felt cinematic and emotional."
+</p>
+
+<h4>Priya & Rajesh</h4>
+
+</div>
+
+<div class="testimonial-card glass">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"Our daughter's photos were absolutely beautiful.
+The experience was comfortable and professional."
+</p>
+
+<h4>Sravani</h4>
+
+</div>
+
+<div class="testimonial-card glass">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"The temple photography was breathtaking.
+Every frame captured the spiritual atmosphere perfectly."
+</p>
+
+<h4>Venkatesh</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+PRICING
+========================================= -->
+
+<section id="pricing" class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+Photography Packages
+</h2>
+
+<p class="section-subtitle">
+Simple, transparent pricing tailored to your story.
+</p>
+
+<div class="pricing-grid">
+
+<div class="pricing-card glass">
+
+<h3>Kids Session</h3>
+
+<div class="price">
+₹4,999
+</div>
+
+<ul>
+<li>1 Hour Session</li>
+<li>20 Edited Images</li>
+<li>Online Delivery</li>
+<li>Premium Retouching</li>
+</ul>
+
+<a href="https://wa.me/919700034138"
+target="_blank"
+class="btn-primary">
+
+Book Session
+
+</a>
+
+</div>
+
+<div class="pricing-card glass featured">
+
+<div class="featured-badge">
+POPULAR
+</div>
+
+<h3>Maternity Session</h3>
+
+<div class="price">
+₹8,999
+</div>
+
+<ul>
+<li>2 Hour Session</li>
+<li>40 Edited Images</li>
+<li>Creative Direction</li>
+<li>Premium Retouching</li>
+</ul>
+
+<a href="https://wa.me/919700034138"
+target="_blank"
+class="btn-primary">
+
+Book Session
+
+</a>
+
+</div>
+
+<div class="pricing-card glass">
+
+<h3>Family Session</h3>
+
+<div class="price">
+₹6,999
+</div>
+
+<ul>
+<li>90 Minute Session</li>
+<li>30 Edited Images</li>
+<li>Online Gallery</li>
+<li>Premium Editing</li>
+</ul>
+
+<a href="https://wa.me/919700034138"
+target="_blank"
+class="btn-primary">
+
+Book Session
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+FAQ
+========================================= -->
+
+<section id="faq" class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-container">
+
+<div class="faq-item glass">
+<button class="faq-question">
+How do I book a session?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Simply contact us through WhatsApp and we'll guide you through the process.
+</p>
+</div>
+</div>
+
+<div class="faq-item glass">
+<button class="faq-question">
+Do you travel outside Hyderabad?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Yes. Travel charges may apply depending on the location.
+</p>
+</div>
+</div>
+
+<div class="faq-item glass">
+<button class="faq-question">
+How long does delivery take?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Most sessions are delivered within 7–14 working days.
+</p>
+</div>
+</div>
+
+<div class="faq-item glass">
+<button class="faq-question">
+Can I choose my photos?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Yes, you'll receive a preview gallery for selection.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+BOOKING CTA
+========================================= -->
+
+<section id="contact" class="section booking-section">
+
+<div class="container">
+
+<div class="booking-card glass">
+
+<h2>
+Let's Create Something Beautiful Together
+</h2>
+
+<p>
+Reserve your session today and preserve memories that will last forever.
+</p>
+
+<div class="booking-buttons">
+
+<a href="https://wa.me/919700034138"
+target="_blank"
+class="btn-primary">
+
+Book via WhatsApp
+
+</a>
+
+<a href="https://www.instagram.com/dillu_captures/"
+target="_blank"
+class="btn-secondary">
+
+View Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+INSTAGRAM
+========================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+Follow The Journey
+</h2>
+
+<p class="section-subtitle">
+Follow Dillu Captures on Instagram for the latest stories, sessions and behind-the-scenes moments.
+</p>
+
+<div style="text-align:center;margin-top:40px;">
+
+<a href="https://www.instagram.com/dillu_captures/"
+target="_blank"
+class="btn-primary">
+
+Follow @dillu_captures
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+FOOTER
+========================================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-content">
+
+<h3>DILLU CAPTURES</h3>
+
+<p>
+Luxury Photography • Cinematic Storytelling
+</p>
+
+<div class="footer-links">
+
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<p class="copyright">
+© 2026 Dillu Captures. All Rights Reserved.
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =========================================
+FLOATING WHATSAPP
+========================================= -->
+
+<a
+href="https://wa.me/919700034138"
+target="_blank"
+class="floating-whatsapp">
+
+💬
+
+</a>
