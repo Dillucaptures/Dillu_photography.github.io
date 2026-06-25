@@ -12,39 +12,38 @@
     <style>
         /* --- Themes & Design Variables --- */
         :root {
-            /* Smooth transitions for theme switching */
-            --transition-speed: 0.5s;
-            --ios-blur: blur(30px) saturate(210%);
+            --transition-speed: 0.4s;
+            --ios-blur: blur(35px) saturate(250%);
         }
 
         [data-theme="dark"] {
-            --bg-gradient: linear-gradient(135deg, #090a0f 0%, #12151c 50%, #040507 100%);
-            --glass-bg: rgba(255, 255, 255, 0.015);
-            --glass-bg-hover: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-highlight: rgba(255, 255, 255, 0.2);
-            --gold: #dfba48;
-            --gold-glow: rgba(223, 186, 72, 0.25);
+            --bg-gradient: linear-gradient(135deg, #07080c 0%, #0f121a 50%, #030406 100%);
+            --glass-bg: rgba(255, 255, 255, 0.025);
+            --glass-bg-hover: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.35);
+            --gold: #e5c158;
+            --gold-glow: rgba(229, 193, 88, 0.3);
             --text-main: #f5f5f7;
             --text-muted: #a1a1a6;
-            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            --ambient-1: rgba(223, 186, 72, 0.05);
-            --ambient-2: rgba(255, 255, 255, 0.02);
+            --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            --ambient-1: rgba(229, 193, 88, 0.07);
+            --ambient-2: rgba(255, 255, 255, 0.03);
         }
 
         [data-theme="light"] {
-            --bg-gradient: linear-gradient(135deg, #f2f4f8 0%, #e2e7f0 50%, #edf1f7 100%);
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-bg-hover: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(0, 0, 0, 0.06);
-            --glass-highlight: rgba(255, 255, 255, 0.6);
-            --gold: #b38f1d;
-            --gold-glow: rgba(179, 143, 29, 0.15);
+            --bg-gradient: linear-gradient(135deg, #f4f6fa 0%, #e5eaf2 50%, #eff3f9 100%);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-hover: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.75);
+            --gold: #a6811c;
+            --gold-glow: rgba(166, 129, 28, 0.18);
             --text-main: #1d1d1f;
             --text-muted: #6e6e73;
-            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            --ambient-1: rgba(179, 143, 29, 0.04);
-            --ambient-2: rgba(0, 100, 255, 0.01);
+            --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            --ambient-1: rgba(166, 129, 28, 0.05);
+            --ambient-2: rgba(0, 90, 255, 0.02);
         }
 
         * {
@@ -59,6 +58,7 @@
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -66,6 +66,7 @@
             background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
+            width: 100%;
         }
 
         /* --- Scrollbar Customization --- */
@@ -77,42 +78,43 @@
         #intro-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: #060709;
+            background: #050608;
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            animation: fadeOutOverlay 1.2s cubic-bezier(0.85, 0, 0.15, 1) forwards 2.3s;
+            animation: fadeOutOverlay 1s cubic-bezier(0.85, 0, 0.15, 1) forwards 2.2s;
             pointer-events: none;
         }
 
         .intro-logo {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: calc(1.8rem + 1.5vw);
             letter-spacing: 10px;
             color: #ffffff;
             opacity: 0;
             transform: translateY(25px);
             animation: fadeInUp 0.8s ease forwards 0.4s;
             text-align: center;
+            padding: 0 20px;
         }
 
         .intro-logo span {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-family: 'Inter', sans-serif;
             letter-spacing: 6px;
-            color: #dfba48;
+            color: #e5c158;
             margin-top: 12px;
             text-transform: uppercase;
         }
 
         .intro-line {
             width: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, #dfba48, transparent);
+            background: linear-gradient(90deg, transparent, #e5c158, transparent);
             margin-top: 25px;
-            animation: expandLine 1s ease forwards 1s;
+            animation: expandLine 0.8s ease forwards 1.1s;
         }
 
         /* --- Pure Ultra-Transparent Glassmorphism UI --- */
@@ -127,33 +129,34 @@
             overflow: hidden;
         }
 
-        /* Glossy specular shine overlay */
+        /* High gloss dynamic edge reflection light overlay */
         .glass-panel::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; height: 40%;
-            background: linear-gradient(to bottom, var(--glass-highlight) 0%, transparent 100%);
+            top: 0; left: 0; right: 0; height: 50%;
+            background: linear-gradient(to bottom, var(--glass-highlight) 0%, rgba(255,255,255,0) 100%);
             pointer-events: none;
             z-index: 1;
         }
 
         .glass-btn {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
             color: var(--text-main);
-            padding: 10px 24px;
-            border-radius: 30px;
+            padding: 12px 28px;
+            border-radius: 40px;
             font-size: 0.85rem;
             font-weight: 500;
             letter-spacing: 0.5px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
-            box-shadow: inset 0 1px 2px var(--glass-highlight);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: inset 0 1px 3px var(--glass-highlight);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s, border-color 0.3s;
         }
 
         .glass-btn:hover {
@@ -162,33 +165,37 @@
             transform: translateY(-2px);
         }
 
+        .glass-btn:active {
+            transform: translateY(0);
+        }
+
         .glass-btn.gold-intent {
             border-color: var(--gold);
             color: var(--gold);
         }
         .glass-btn.gold-intent:hover {
-            box-shadow: 0 0 20px var(--gold-glow);
+            box-shadow: 0 0 25px var(--gold-glow);
         }
 
-        /* --- Liquid Navigation Bar --- */
+        /* --- Liquid Responsive Navigation Bar --- */
         #main-nav {
             position: fixed;
-            top: 25px; left: 50%;
+            top: 20px; left: 50%;
             transform: translateX(-50%) translateY(-120px);
-            width: 92%;
+            width: 90%;
             max-width: 1100px;
-            padding: 12px 35px;
+            padding: 10px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-radius: 50px;
-            animation: slideDownNav 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.6s;
+            animation: slideDownNav 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.4s;
         }
 
         .nav-logo {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--text-main);
@@ -198,17 +205,18 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             transition: color 0.3s;
+            padding: 6px 10px;
         }
 
         .nav-links a:hover {
@@ -226,9 +234,9 @@
             justify-content: center;
             padding: 5px;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            transition: background 0.3s;
+            width: 34px;
+            height: 34px;
+            transition: background var(--transition-speed);
         }
         .theme-toggle-btn:hover {
             background: var(--glass-bg-hover);
@@ -237,78 +245,81 @@
         /* --- Ambient Lighting Orbs --- */
         .ambient-orb {
             position: absolute;
-            width: 500px; height: 500px;
+            width: 45vw; height: 45vw;
             border-radius: 50%;
             background: radial-gradient(circle, var(--ambient-1) 0%, transparent 70%);
             top: 15%; left: 5%;
             filter: blur(60px);
             pointer-events: none;
             z-index: 0;
+            will-change: transform;
         }
         .ambient-orb-2 {
             position: absolute;
-            width: 600px; height: 600px;
+            width: 50vw; height: 50vw;
             border-radius: 50%;
             background: radial-gradient(circle, var(--ambient-2) 0%, transparent 70%);
             bottom: 20%; right: 5%;
             filter: blur(60px);
             pointer-events: none;
             z-index: 0;
+            will-change: transform;
         }
 
         /* --- Layout Sections --- */
         section {
             position: relative;
             z-index: 5;
-            scroll-margin-top: 110px;
+            scroll-margin-top: 95px;
+            width: 100%;
         }
 
-        /* Hero */
+        /* Home Hero */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 150px 20px 80px 20px;
+            padding: 140px 24px 60px 24px;
         }
 
         .hero-content {
             max-width: 850px;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.8s;
+            animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.5s;
         }
 
         .hero-tagline {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         .hero-title {
             font-family: 'Cinzel', serif;
-            font-size: 3.8rem;
+            font-size: calc(2.2rem + 1.8vw);
             font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            line-height: 1.25;
+            margin-bottom: 25px;
         }
 
         .hero-desc {
-            font-size: 1.05rem;
+            font-size: calc(0.95rem + 0.15vw);
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 40px auto;
-            line-height: 1.8;
+            margin: 0 auto 35px auto;
+            line-height: 1.7;
             font-weight: 300;
         }
 
-        /* About / Philosophy Section */
+        /* About / Architecture Section */
         #about {
-            padding: 100px 20px;
+            padding: 80px 24px;
             max-width: 1140px;
             margin: 0 auto;
         }
@@ -316,31 +327,33 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
         }
 
         .about-img {
             width: 100%;
-            height: 480px;
+            height: 100%;
+            min-height: 450px;
+            max-height: 550px;
             object-fit: cover;
             border-radius: 24px;
         }
 
         .about-text-panel {
-            padding: 40px;
+            padding: calc(20px + 2vw);
         }
 
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
+            font-size: calc(1.6rem + 0.8vw);
             margin-bottom: 20px;
             font-weight: 400;
         }
 
         .section-desc {
             color: var(--text-muted);
-            line-height: 1.8;
+            line-height: 1.7;
             font-size: 0.95rem;
             margin-bottom: 25px;
         }
@@ -359,33 +372,34 @@
         }
 
         .spec-item h4 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 5px;
         }
 
         .spec-item p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
+            line-height: 1.4;
         }
 
-        /* Lands / Properties Section */
+        /* Lands & Properties Section */
         #lands {
-            padding: 100px 20px;
+            padding: 80px 24px;
             max-width: 1140px;
             margin: 0 auto;
         }
 
         .center-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
 
         .portfolio-card {
@@ -395,7 +409,7 @@
 
         .card-img-container {
             width: 100%;
-            height: 380px;
+            height: 320px;
             overflow: hidden;
             border-radius: 24px 24px 0 0;
             position: relative;
@@ -405,11 +419,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .portfolio-card:hover .card-img-container img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .card-body {
@@ -417,36 +432,39 @@
             border-top: none;
             border-radius: 0 0 24px 24px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-body h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 12px;
             font-weight: 400;
         }
 
         /* Contact Section */
         #contact {
-            padding: 100px 20px 140px 20px;
+            padding: 80px 24px 120px 24px;
             max-width: 750px;
             margin: 0 auto;
         }
 
         .contact-box {
-            padding: 50px;
+            padding: calc(30px + 2vw);
             text-align: center;
         }
 
         .contact-methods {
-            margin: 40px 0;
+            margin: 35px 0;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 20px;
         }
 
         .method-row {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
         }
 
         .method-row span {
@@ -464,7 +482,7 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* --- Animation Configurations --- */
+        /* --- Optimization Keyframe Animations --- */
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
@@ -475,20 +493,29 @@
             to { opacity: 0; visibility: hidden; }
         }
         @keyframes expandLine {
-            to { width: 220px; }
+            to { width: 180px; }
         }
 
-        /* Responsive Breakpoints */
+        /* --- High-Fidelity Multi-Device Media Breakpoints --- */
         @media (max-width: 900px) {
             .about-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.6rem; }
-            #main-nav .nav-links { display: none; }
+            .about-img { min-height: 320px; max-height: 400px; }
+            #main-nav { padding: 8px 16px; width: 95%; }
+            .nav-links gap { gap: 10px; }
+            .nav-links a { font-size: 0.75rem; padding: 4px 6px; letter-spacing: 0.5px; }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links a { display: none; } /* Adaptive hide regular links on extreme small screens */
+            .nav-links a[href="#contact"] { display: inline-flex; } /* Keep direct contact accessible */
+            .specs-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 30px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Intro Animation Frame -->
+    <!-- Smooth Hardware-Accelerated Curtain Screen -->
     <div id="intro-overlay">
         <div class="intro-logo">
             NAITRIKA
@@ -497,7 +524,7 @@
         <div class="intro-line"></div>
     </div>
 
-    <!-- Liquid Top Nav Bar -->
+    <!-- Apple-iOS Spec Top Fixed Nav Bar -->
     <nav id="main-nav" class="glass-panel">
         <a href="#home" class="nav-logo">NAITRIKA</a>
         <div class="nav-links">
@@ -506,9 +533,8 @@
             <a href="#lands">Lands</a>
             <a href="#contact">Contact</a>
             
-            <!-- Light/Dark Glass Toggle Switch -->
+            <!-- Dynamic Dark/Light Switcher Switch -->
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-                <!-- SVG Icon for Dynamic Change -->
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -524,11 +550,11 @@
         </div>
     </nav>
 
-    <!-- Moving Glow Orbs -->
+    <!-- GPU-Bound Layer Orbs -->
     <div class="ambient-orb"></div>
     <div class="ambient-orb-2"></div>
 
-    <!-- Home Hero Section -->
+    <!-- Home Hero Container -->
     <section id="home">
         <div class="hero-content">
             <p class="hero-tagline">Architectural Masterpieces</p>
@@ -538,7 +564,7 @@
         </div>
     </section>
 
-    <!-- About & Construction Section -->
+    <!-- About & Engineering Specifications Section -->
     <section id="about">
         <div class="about-grid">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Bespoke Luxury Architecture" class="about-img glass-panel">
@@ -583,11 +609,13 @@
             <!-- Property 1 -->
             <div class="portfolio-card">
                 <div class="card-img-container glass-panel">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Luminary Pavilion">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Luminary Pavilion" loading="lazy">
                 </div>
                 <div class="card-body glass-panel">
-                    <h3>The Luminary Pavilion</h3>
-                    <p class="section-desc" style="margin-bottom:20px;">Prime real estate featuring panoramic landscape orientation, tailored for comprehensive bespoke custom interior setups built directly during raw construction.</p>
+                    <div>
+                        <h3>The Luminary Pavilion</h3>
+                        <p class="section-desc" style="margin-bottom:20px;">Prime real estate featuring panoramic landscape orientation, tailored for comprehensive bespoke custom interior setups built directly during raw construction.</p>
+                    </div>
                     <a href="#contact" class="glass-btn gold-intent" style="width: 100%;">Enquire Details</a>
                 </div>
             </div>
@@ -595,18 +623,20 @@
             <!-- Property 2 -->
             <div class="portfolio-card">
                 <div class="card-img-container glass-panel">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Atrium">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Atrium" loading="lazy">
                 </div>
                 <div class="card-body glass-panel">
-                    <h3>Obsidian Vista Holdings</h3>
-                    <p class="section-desc" style="margin-bottom:20px;">Exclusive plot collection offering raw natural topography with foundational retaining walls and utility mains pre-engineered to perfection.</p>
+                    <div>
+                        <h3>Obsidian Vista Holdings</h3>
+                        <p class="section-desc" style="margin-bottom:20px;">Exclusive plot collection offering raw natural topography with foundational retaining walls and utility mains pre-engineered to perfection.</p>
+                    </div>
                     <a href="#contact" class="glass-btn gold-intent" style="width: 100%;">Enquire Details</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Panel Area -->
     <section id="contact">
         <div class="contact-box glass-panel">
             <p class="hero-tagline" style="margin-bottom:10px;">Private Consultation</p>
@@ -630,9 +660,9 @@
         </div>
     </section>
 
-    <!-- Interactive Scripting -->
+    <!-- High-Performance Interaction Scripting -->
     <script>
-        // Light / Dark Theme Toggler Configuration
+        // Smooth Theme Toggler Engine
         const themeToggleBtn = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
 
@@ -641,7 +671,6 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             htmlElement.setAttribute('data-theme', newTheme);
             
-            // Adjust toggle button symbol based on state
             if(newTheme === 'light') {
                 themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
             } else {
@@ -649,16 +678,25 @@
             }
         });
 
-        // Ambient Mouse Tracking for Fluid Glass Parallax Depth
+        // Throttle Mouse Move with RequestAnimationFrame for Smooth 120Hz Mobile/Desktop Tracking
+        let ticking = false;
         document.addEventListener('mousemove', (e) => {
-            const orb1 = document.querySelector('.ambient-orb');
-            const orb2 = document.querySelector('.ambient-orb-2');
-            
-            const x = (window.innerWidth - e.pageX * 2) / 90;
-            const y = (window.innerHeight - e.pageY * 2) / 90;
-            
-            orb1.style.transform = `translateX(${x}px) translateY(${y}px)`;
-            orb2.style.transform = `translateX(${-x}px) translateY(${-y}px)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const orb1 = document.querySelector('.ambient-orb');
+                    const orb2 = document.querySelector('.ambient-orb-2');
+                    
+                    const x = (window.innerWidth - e.pageX * 2) / 100;
+                    const y = (window.innerHeight - e.pageY * 2) / 100;
+                    
+                    if(orb1 && orb2) {
+                        orb1.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${x}, ${y}, 0, 1)`;
+                        orb2.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${-x}, ${-y}, 0, 1)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     </script>
 </body>
