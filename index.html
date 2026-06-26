@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,23 @@
         :root {
             --transition-speed: 0.4s;
             --ios-blur: blur(35px) saturate(250%);
+            
+            /* Enforced Light Theme Properties by Default */
+            --bg-gradient: linear-gradient(135deg, #f4f6fa 0%, #e5eaf2 50%, #eff3f9 100%);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-hover: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.75);
+            --gold: #a6811c;
+            --gold-glow: rgba(166, 129, 28, 0.18);
+            --text-main: #1d1d1f;
+            --text-muted: #6e6e73;
+            --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            --ambient-1: rgba(166, 129, 28, 0.05);
+            --ambient-2: rgba(0, 90, 255, 0.02);
         }
 
+        /* Explicitly retaining theme configurations if toggled back */
         [data-theme="dark"] {
             --bg-gradient: linear-gradient(135deg, #07080c 0%, #0f121a 50%, #030406 100%);
             --glass-bg: rgba(255, 255, 255, 0.025);
@@ -78,7 +93,7 @@
         #intro-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: #050608;
+            background: #f4f6fa; /* Clean light entry curtain */
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -92,7 +107,7 @@
             font-family: 'Cinzel', serif;
             font-size: calc(1.8rem + 1.5vw);
             letter-spacing: 10px;
-            color: #ffffff;
+            color: #1d1d1f;
             opacity: 0;
             transform: translateY(25px);
             animation: fadeInUp 0.8s ease forwards 0.4s;
@@ -105,14 +120,14 @@
             font-size: 0.8rem;
             font-family: 'Inter', sans-serif;
             letter-spacing: 6px;
-            color: #e5c158;
+            color: var(--gold);
             margin-top: 12px;
             text-transform: uppercase;
         }
 
         .intro-line {
             width: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, #e5c158, transparent);
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin-top: 25px;
             animation: expandLine 0.8s ease forwards 1.1s;
         }
@@ -129,7 +144,6 @@
             overflow: hidden;
         }
 
-        /* High gloss dynamic edge reflection light overlay */
         .glass-panel::before {
             content: '';
             position: absolute;
@@ -223,7 +237,6 @@
             color: var(--text-main);
         }
 
-        /* Theme Toggle Button Style */
         .theme-toggle-btn {
             background: transparent;
             border: none;
@@ -274,7 +287,6 @@
             width: 100%;
         }
 
-        /* Home Hero */
         #home {
             min-height: 100vh;
             display: flex;
@@ -317,7 +329,6 @@
             font-weight: 300;
         }
 
-        /* About / Architecture Section */
         #about {
             padding: 80px 24px;
             max-width: 1140px;
@@ -358,7 +369,6 @@
             margin-bottom: 25px;
         }
 
-        /* Construction Specifications Grid */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -384,7 +394,6 @@
             line-height: 1.4;
         }
 
-        /* Lands & Properties Section */
         #lands {
             padding: 80px 24px;
             max-width: 1140px;
@@ -444,7 +453,6 @@
             font-weight: 400;
         }
 
-        /* Contact Section */
         #contact {
             padding: 80px 24px 120px 24px;
             max-width: 750px;
@@ -482,7 +490,6 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* --- Optimization Keyframe Animations --- */
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
@@ -496,18 +503,17 @@
             to { width: 180px; }
         }
 
-        /* --- High-Fidelity Multi-Device Media Breakpoints --- */
         @media (max-width: 900px) {
             .about-grid { grid-template-columns: 1fr; }
             .about-img { min-height: 320px; max-height: 400px; }
             #main-nav { padding: 8px 16px; width: 95%; }
-            .nav-links gap { gap: 10px; }
+            .nav-links { gap: 10px; }
             .nav-links a { font-size: 0.75rem; padding: 4px 6px; letter-spacing: 0.5px; }
         }
 
         @media (max-width: 500px) {
-            .nav-links a { display: none; } /* Adaptive hide regular links on extreme small screens */
-            .nav-links a[href="#contact"] { display: inline-flex; } /* Keep direct contact accessible */
+            .nav-links a { display: none; }
+            .nav-links a[href="#contact"] { display: inline-flex; }
             .specs-grid { grid-template-columns: 1fr; }
             .contact-box { padding: 30px 15px; }
         }
@@ -536,15 +542,7 @@
             <!-- Dynamic Dark/Light Switcher Switch -->
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
         </div>
