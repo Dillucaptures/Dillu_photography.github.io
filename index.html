@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naitrika Real Estates | Premium Spaces & Development</title>
+    <title>Naitrika Real Estate | Premium Spaces & Development</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         /* --- Themes & Design Variables --- */
@@ -22,7 +23,6 @@
             --glass-border: rgba(255, 255, 255, 0.12);
             --glass-highlight: rgba(255, 255, 255, 0.35);
             --gold: #e5c158;
-            --gold-gradient: linear-gradient(135deg, #fbf5e6 0%, #e5c158 50%, #b38f1d 100%);
             --gold-glow: rgba(229, 193, 88, 0.3);
             --text-main: #f5f5f7;
             --text-muted: #a1a1a6;
@@ -38,7 +38,6 @@
             --glass-border: rgba(0, 0, 0, 0.08);
             --glass-highlight: rgba(255, 255, 255, 0.75);
             --gold: #a6811c;
-            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #a6811c 100%);
             --gold-glow: rgba(166, 129, 28, 0.18);
             --text-main: #1d1d1f;
             --text-muted: #6e6e73;
@@ -70,7 +69,7 @@
             width: 100%;
         }
 
-        /* --- Custom Scrollbar --- */
+        /* --- Scrollbar Customization --- */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 4px; }
@@ -90,11 +89,9 @@
         }
 
         .intro-logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            font-style: italic;
-            font-size: calc(2rem + 2vw);
-            letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+            font-size: calc(1.8rem + 1.5vw);
+            letter-spacing: 10px;
             color: #ffffff;
             opacity: 0;
             transform: translateY(25px);
@@ -107,8 +104,7 @@
             display: block;
             font-size: 0.8rem;
             font-family: 'Inter', sans-serif;
-            font-style: normal;
-            letter-spacing: 8px;
+            letter-spacing: 6px;
             color: #e5c158;
             margin-top: 12px;
             text-transform: uppercase;
@@ -121,7 +117,7 @@
             animation: expandLine 0.8s ease forwards 1.1s;
         }
 
-        /* --- Transparent Glassmorphism UI Components --- */
+        /* --- Pure Ultra-Transparent Glassmorphism UI --- */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: var(--ios-blur);
@@ -133,6 +129,7 @@
             overflow: hidden;
         }
 
+        /* High gloss dynamic edge reflection light overlay */
         .glass-panel::before {
             content: '';
             position: absolute;
@@ -168,7 +165,9 @@
             transform: translateY(-2px);
         }
 
-        .glass-btn:active { transform: translateY(0); }
+        .glass-btn:active {
+            transform: translateY(0);
+        }
 
         .glass-btn.gold-intent {
             border-color: var(--gold);
@@ -178,30 +177,7 @@
             box-shadow: 0 0 25px var(--gold-glow);
         }
 
-        /* --- Dynamic Custom Luxury Typography Styles --- */
-        .luxury-header-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: calc(2.8rem + 2.5vw);
-            line-height: 1.15;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-            margin-bottom: 25px;
-        }
-
-        .luxury-sub-header {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: calc(1.8rem + 1vw);
-            line-height: 1.2;
-            color: var(--text-main);
-            margin-bottom: 20px;
-        }
-
-        /* --- Navigation Bar --- */
+        /* --- Liquid Responsive Navigation Bar --- */
         #main-nav {
             position: fixed;
             top: 20px; left: 50%;
@@ -218,11 +194,10 @@
         }
 
         .nav-logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
             font-weight: 700;
-            font-style: italic;
-            font-size: 1.35rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
             color: var(--text-main);
             text-decoration: none;
         }
@@ -244,8 +219,11 @@
             padding: 6px 10px;
         }
 
-        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
 
+        /* Theme Toggle Button Style */
         .theme-toggle-btn {
             background: transparent;
             border: none;
@@ -258,10 +236,13 @@
             border-radius: 50%;
             width: 34px;
             height: 34px;
+            transition: background var(--transition-speed);
         }
-        .theme-toggle-btn:hover { background: var(--glass-bg-hover); }
+        .theme-toggle-btn:hover {
+            background: var(--glass-bg-hover);
+        }
 
-        /* --- Ambient GPU Lighting --- */
+        /* --- Ambient Lighting Orbs --- */
         .ambient-orb {
             position: absolute;
             width: 45vw; height: 45vw;
@@ -293,6 +274,7 @@
             width: 100%;
         }
 
+        /* Home Hero */
         #home {
             min-height: 100vh;
             display: flex;
@@ -303,7 +285,7 @@
         }
 
         .hero-content {
-            max-width: 950px;
+            max-width: 850px;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.5s;
@@ -318,15 +300,24 @@
             font-weight: 600;
         }
 
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: calc(2.2rem + 1.8vw);
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: 25px;
+        }
+
         .hero-desc {
             font-size: calc(0.95rem + 0.15vw);
             color: var(--text-muted);
-            max-width: 620px;
-            margin: 0 auto 40px auto;
-            line-height: 1.75;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            line-height: 1.7;
             font-weight: 300;
         }
 
+        /* About / Architecture Section */
         #about {
             padding: 80px 24px;
             max-width: 1140px;
@@ -349,7 +340,16 @@
             border-radius: 24px;
         }
 
-        .about-text-panel { padding: calc(20px + 2vw); }
+        .about-text-panel {
+            padding: calc(20px + 2vw);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: calc(1.6rem + 0.8vw);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
 
         .section-desc {
             color: var(--text-muted);
@@ -358,6 +358,7 @@
             margin-bottom: 25px;
         }
 
+        /* Construction Specifications Grid */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -383,6 +384,7 @@
             line-height: 1.4;
         }
 
+        /* Lands & Properties Section */
         #lands {
             padding: 80px 24px;
             max-width: 1140px;
@@ -421,7 +423,9 @@
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .portfolio-card:hover .card-img-container img { transform: scale(1.05); }
+        .portfolio-card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
 
         .card-body {
             padding: 30px;
@@ -434,12 +438,13 @@
         }
 
         .card-body h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
+        /* Contact Section */
         #contact {
             padding: 80px 24px 120px 24px;
             max-width: 750px;
@@ -458,7 +463,9 @@
             gap: 20px;
         }
 
-        .method-row { font-size: 1.1rem; }
+        .method-row {
+            font-size: 1.1rem;
+        }
 
         .method-row span {
             display: block;
@@ -472,50 +479,61 @@
         .method-row a {
             color: var(--gold);
             text-decoration: none;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-family: 'Cinzel', serif;
         }
 
-        /* --- Animations Keyframes --- */
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideDownNav { to { transform: translateX(-50%) translateY(0); } }
-        @keyframes fadeOutOverlay { to { opacity: 0; visibility: hidden; } }
-        @keyframes expandLine { to { width: 180px; } }
+        /* --- Optimization Keyframe Animations --- */
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDownNav {
+            to { transform: translateX(-50%) translateY(0); }
+        }
+        @keyframes fadeOutOverlay {
+            to { opacity: 0; visibility: hidden; }
+        }
+        @keyframes expandLine {
+            to { width: 180px; }
+        }
 
-        /* Media Queries */
+        /* --- High-Fidelity Multi-Device Media Breakpoints --- */
         @media (max-width: 900px) {
             .about-grid { grid-template-columns: 1fr; }
             .about-img { min-height: 320px; max-height: 400px; }
             #main-nav { padding: 8px 16px; width: 95%; }
-            .nav-links { gap: 10px; }
-            .nav-links a { font-size: 0.75rem; padding: 4px 6px; }
+            .nav-links gap { gap: 10px; }
+            .nav-links a { font-size: 0.75rem; padding: 4px 6px; letter-spacing: 0.5px; }
         }
 
         @media (max-width: 500px) {
-            .nav-links a { display: none; }
-            .nav-links a[href="#contact"] { display: inline-flex; }
+            .nav-links a { display: none; } /* Adaptive hide regular links on extreme small screens */
+            .nav-links a[href="#contact"] { display: inline-flex; } /* Keep direct contact accessible */
             .specs-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 30px 15px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Smooth Hardware-Accelerated Curtain Screen -->
     <div id="intro-overlay">
         <div class="intro-logo">
-            Naitrika Real Estates
-            <span>Bespoke Architecture</span>
+            NAITRIKA
+            <span>Real Estate</span>
         </div>
         <div class="intro-line"></div>
     </div>
 
+    <!-- Apple-iOS Spec Top Fixed Nav Bar -->
     <nav id="main-nav" class="glass-panel">
-        <a href="#home" class="nav-logo">Naitrika</a>
+        <a href="#home" class="nav-logo">NAITRIKA</a>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#lands">Lands</a>
             <a href="#contact">Contact</a>
             
+            <!-- Dynamic Dark/Light Switcher Switch -->
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
@@ -532,27 +550,30 @@
         </div>
     </nav>
 
+    <!-- GPU-Bound Layer Orbs -->
     <div class="ambient-orb"></div>
     <div class="ambient-orb-2"></div>
 
+    <!-- Home Hero Container -->
     <section id="home">
         <div class="hero-content">
             <p class="hero-tagline">Architectural Masterpieces</p>
-            <h1 class="luxury-header-text">Naitrika Real Estates</h1>
+            <h1 class="hero-title">Elevating Premium Living Spaces</h1>
             <p class="hero-desc">Bespoke land developments and luxury estates curated with rigorous structural integrity and elite modern design principles.</p>
             <a href="#lands" class="glass-btn">Explore Portfolio</a>
         </div>
     </section>
 
+    <!-- About & Engineering Specifications Section -->
     <section id="about">
         <div class="about-grid">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Bespoke Luxury Architecture" class="about-img glass-panel">
             
             <div class="about-text-panel glass-panel">
                 <p class="hero-tagline" style="margin-bottom:10px;">The Single-Roof Workflow</p>
-                <h2 class="luxury-sub-header">Design & Engineering Unified</h2>
+                <h2 class="section-title">Design & Engineering Unified</h2>
                 <p class="section-desc">
-                    At Naitrika Real Estates, we bridge structural engineering with haute interior decoration under one single studio roof. This eliminates disconnects between primary construction plans and final spatial finishes.
+                    At Naitrika Real Estate, we bridge structural engineering with haute interior decoration under one single studio roof. This eliminates disconnects between primary construction plans and final spatial finishes.
                 </p>
 
                 <div class="specs-grid">
@@ -577,13 +598,15 @@
         </div>
     </section>
 
+    <!-- Lands Section -->
     <section id="lands">
         <div class="center-header">
             <p class="hero-tagline">Curated Acquisitions</p>
-            <h2 class="luxury-sub-header">Premium Holdings & Estates</h2>
+            <h2 class="section-title">Premium Holdings & Estates</h2>
         </div>
 
         <div class="portfolio-grid">
+            <!-- Property 1 -->
             <div class="portfolio-card">
                 <div class="card-img-container glass-panel">
                     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Luminary Pavilion" loading="lazy">
@@ -597,6 +620,7 @@
                 </div>
             </div>
 
+            <!-- Property 2 -->
             <div class="portfolio-card">
                 <div class="card-img-container glass-panel">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Atrium" loading="lazy">
@@ -612,10 +636,11 @@
         </div>
     </section>
 
+    <!-- Contact Panel Area -->
     <section id="contact">
         <div class="contact-box glass-panel">
             <p class="hero-tagline" style="margin-bottom:10px;">Private Consultation</p>
-            <h2 class="luxury-sub-header">Begin Your Blueprint</h2>
+            <h2 class="section-title">Begin Your Blueprint</h2>
             <p class="section-desc">Connect with our dedicated site developers and interior spatial architects.</p>
             
             <div class="contact-methods">
@@ -630,13 +655,14 @@
             </div>
             
             <p style="font-size: 0.8rem; color: var(--text-muted);">
-                © 2026 Naitrika Real Estates. All Architectural Planning, Structural Contracting, and Interior Layouts Handled Under One Roof.
+                © 2026 Naitrika Real Estate. All Architectural Planning, Structural Contracting, and Interior Layouts Handled Under One Roof.
             </p>
         </div>
     </section>
 
+    <!-- High-Performance Interaction Scripting -->
     <script>
-        // Light / Dark Theme Switching Logic
+        // Smooth Theme Toggler Engine
         const themeToggleBtn = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
 
@@ -652,7 +678,7 @@
             }
         });
 
-        // 120Hz Hardware Accelerated Ambient Fluid Motion
+        // Throttle Mouse Move with RequestAnimationFrame for Smooth 120Hz Mobile/Desktop Tracking
         let ticking = false;
         document.addEventListener('mousemove', (e) => {
             if (!ticking) {
