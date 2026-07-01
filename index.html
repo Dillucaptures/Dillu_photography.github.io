@@ -1,1127 +1,618 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naitrika Real Estate | Premium Liquid Glass Portfolio</title>
+    <title>Lumina | Luxury Photography</title>
     
-    <!-- Premium Typography Import Stack -->
+    <!-- Google Fonts for Luxury Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- iOS 26 Structural Microphysics Engines --- */
-        :root {
-            --ios-curve: cubic-bezier(0.16, 1, 0.3, 1);
-            --fluid-bounce: cubic-bezier(0.25, 1.22, 0.45, 1);
-            --liquid-blur: blur(80px) saturate(230%);
-            
-            /* --- Light Scheme Presets (Ultra-Clean Frost Glass) --- */
-            --bg-base: #f3f7fa;
-            --bg-gradient: linear-gradient(135deg, #f6f9fc 0%, #e2ecf5 50%, #dbe5f0 100%);
-            --glass-bg: rgba(255, 255, 255, 0.16);
-            --glass-bg-hover: rgba(255, 255, 255, 0.3);
-            --glass-border: rgba(255, 255, 255, 0.7);
-            --glass-border-outer: rgba(9, 32, 76, 0.04);
-            --glass-highlight: rgba(255, 255, 255, 0.9);
-            
-            --text-main: #0b0e14;
-            --text-muted: #2f3747;
-            --gold-accent: #6b4e05;
-            --price-tag: #0a5c36;
-            
-            --steady-shadow: 0 4px 30px rgba(9, 27, 61, 0.02),
-                              0 20px 50px rgba(9, 27, 61, 0.04),
-                              inset 0 1px 0px var(--glass-highlight);
-            --steady-shadow-hover: 0 16px 40px rgba(9, 27, 61, 0.05),
-                                    0 32px 80px rgba(9, 27, 61, 0.08),
-                                    inset 0 1px 0px var(--glass-highlight);
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        [data-theme="dark"] {
-            /* --- Dark Scheme Presets (Obsidian Refraction Glass) --- */
-            --bg-base: #05070b;
-            --bg-gradient: radial-gradient(circle at 50% -20%, #0d1322 0%, #05080c 65%, #020305 100%);
-            --glass-bg: rgba(10, 15, 26, 0.25);
-            --glass-bg-hover: rgba(16, 24, 41, 0.38);
+    <style>
+        /* CSS Variables for Liquid Glass Theme */
+        :root {
+            --bg-color: #050507;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #d4af37;
+            
+            /* Liquid Glass Variables */
+            --glass-bg: rgba(20, 20, 25, 0.4);
             --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-border-outer: rgba(0, 0, 0, 0.5);
-            --glass-highlight: rgba(255, 255, 255, 0.12);
-            
-            --text-main: #f3f6fa;
-            --text-muted: #94a3b8;
-            --gold-accent: #eec561;
-            --price-tag: #2ecc71;
-            
-            --steady-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
-                              0 4px 15px rgba(0, 0, 0, 0.3),
-                              inset 0 1px 1px rgba(255, 255, 255, 0.08);
-            --steady-shadow-hover: 0 32px 70px rgba(0, 0, 0, 0.65),
-                                    0 8px 25px rgba(0, 0, 0, 0.4),
-                                    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --glass-blur: 24px;
+            --glass-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            transition: color 0.3s ease, background-color 0.4s var(--ios-curve);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
-            width: 100%;
-            background-color: var(--bg-base);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
         }
 
         body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            min-height: 100vh;
-            width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { 
-            background: rgba(120, 120, 120, 0.25); 
-            border-radius: 100px;
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
         }
 
-        /* --- Glass Panel Structural Base --- */
+        /* --- Fluid Background Animation --- */
+        .liquid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-color);
+        }
+        
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .blob:nth-child(1) {
+            width: 500px; height: 500px;
+            background: rgba(212, 175, 55, 0.15); /* Gold */
+            top: -10%; left: -10%;
+        }
+
+        .blob:nth-child(2) {
+            width: 600px; height: 600px;
+            background: rgba(88, 101, 242, 0.1); /* Cool Blue */
+            bottom: -20%; right: -10%;
+            animation-delay: -5s;
+        }
+
+        .blob:nth-child(3) {
+            width: 400px; height: 400px;
+            background: rgba(255, 255, 255, 0.05); /* White */
+            top: 40%; left: 50%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 100px) scale(1.1); }
+            100% { transform: translate(-50px, -50px) scale(0.9); }
+        }
+
+        /* --- Reusable Liquid Glass Panel --- */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: var(--liquid-blur);
-            -webkit-backdrop-filter: var(--liquid-blur);
+            backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
             border: 1px solid var(--glass-border);
-            outline: 1px solid var(--glass-border-outer);
-            border-radius: 24px;
-            box-shadow: var(--steady-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .glass-panel:hover {
-            box-shadow: var(--steady-shadow-hover);
+            border-top: 1px solid var(--glass-highlight);
+            border-left: 1px solid var(--glass-highlight);
+            border-radius: 40px;
+            box-shadow: var(--glass-shadow);
         }
 
-        .glass-panel::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at var(--specular-x, 50%) var(--specular-y, 50%), rgba(255, 255, 255, 0.22) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 2;
-            mix-blend-mode: overlay;
-        }
-
-        /* --- Cross-Platform Unified Navbar --- */
-        #dock-nav {
+        /* --- Navigation --- */
+        nav {
             position: fixed;
-            top: 16px; left: 50%;
+            top: 30px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 94%;
+            width: 90%;
             max-width: 1200px;
-            padding: 8px 16px 8px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            border-radius: 100px;
-            will-change: transform, opacity;
-            transition: transform 0.6s var(--ios-curve), opacity 0.6s var(--ios-curve), background-color 0.5s var(--ios-curve);
-        }
-        
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--text-main);
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-        
-        .nav-right-cluster {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .nav-center-links {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        
-        .nav-center-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            padding: 8px 12px;
-            border-radius: 100px;
-            white-space: nowrap;
-        }
-        .nav-center-links a:hover {
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.25);
+            padding: 15px 40px;
+            z-index: 100;
+            border-radius: 100px; /* Pill shape */
         }
 
-        .btn-nav-action {
-            background: var(--text-main);
-            color: var(--bg-base) !important;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.75rem;
+        .logo {
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            white-space: nowrap;
-            margin-left: 6px;
-        }
-        .btn-nav-action:hover {
-            transform: translateY(-1px);
-            opacity: 0.9;
+            color: var(--text-primary);
         }
 
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            color: var(--text-main);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+        .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-left: 2px;
-        }
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
+            gap: 30px;
         }
 
-        /* --- Ambient Atmospheric Plasma Background --- */
-        .plasma-backdrop {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
-        .plasma-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.38;
-            animation: seamlessFloat 22s infinite alternate ease-in-out;
-        }
-        .orb-1 { width: 750px; height: 750px; background: #cce0ff; top: -15%; left: -10%; }
-        .orb-2 { width: 850px; height: 850px; background: #fbeacf; bottom: -20%; right: -10%; animation-delay: -5s; }
 
-        /* --- Hero Canopy Space --- */
-        #home {
-            min-height: 90vh;
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 180px 24px 80px 24px;
-        }
-        .hero-tag {
-            font-size: 0.88rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            color: var(--gold-accent);
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: calc(2.4rem + 2.4vw);
-            color: var(--text-main);
-            line-height: 1.15;
-            font-weight: 600;
-            max-width: 1100px;
-            margin: 0 auto 35px auto;
-            letter-spacing: -1px;
-        }
-        .luxury-quote-block {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: calc(1.1rem + 0.5vw);
-            color: var(--text-muted);
-            max-width: 780px;
-            margin: 0 auto;
-            line-height: 1.7;
-            position: relative;
             padding: 0 20px;
+            position: relative;
         }
 
-        /* --- Sections Core Structural Grid Layout --- */
+        .hero-content {
+            padding: 60px 80px;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero h1 i {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- Section Defaults --- */
         section {
-            padding: 80px 24px 40px 24px;
+            padding: 120px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .section-headline {
-            font-family: 'Playfair Display', serif;
-            font-size: calc(1.8rem + 0.8vw);
-            color: var(--text-main);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
 
-        /* --- Editorial About Founder Layout Grid --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.15fr;
-            gap: 64px;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .founder-img-frame {
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: var(--steady-shadow);
-            border: 1px solid var(--glass-border);
-        }
-        .founder-img-frame img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-        .about-details-card {
-            padding: 60px;
-        }
-        .about-text {
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-        .signature-group h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            margin-top: 35px;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-        .signature-group p {
-            font-size: 0.85rem;
-            color: var(--gold-accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        /* --- OLX Luxury Land Aggregator Grid --- */
-        .center-title-header {
+        .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
-        .land-catalog-matrix {
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        /* --- Portfolio Section --- */
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        .land-card {
-            display: flex;
-            flex-direction: column;
-            border-radius: 24px;
-            background: var(--glass-bg);
-            transition: transform 0.4s var(--ios-curve);
-        }
-        .land-card:hover {
-            transform: translateY(-6px);
-        }
-        .land-img-frame {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            border-radius: 24px 24px 0 0;
+
+        .portfolio-item {
             position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
             cursor: pointer;
         }
-        .land-img-frame img {
+
+        .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.7s var(--ios-curve);
+            transition: transform 0.7s ease;
         }
-        .land-card:hover .land-img-frame img {
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
             transform: scale(1.05);
         }
-        
-        .land-img-frame::after {
-            content: 'View Details';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(11, 14, 20, 0.4);
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .land-img-frame:hover::after {
+
+        .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
 
-        .card-badge {
-            position: absolute;
-            top: 16px; left: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            color: #0b0e14;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            z-index: 3;
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
         }
 
-        .land-data-block {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
-        .land-price-metric {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--price-tag);
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-        }
-        .land-title-headline {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 14px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .olx-meta-bar {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid rgba(120, 120, 120, 0.15);
-            padding-top: 12px;
-            margin-top: auto;
-        }
-        .olx-meta-unit {
-            display: flex;
-            flex-direction: column;
-        }
-        .olx-meta-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-            font-weight: 500;
-        }
-        .olx-meta-value {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-main);
+        .portfolio-item:hover .portfolio-overlay h3 {
+            transform: translateY(0);
         }
 
-        /* --- Premium Contact Vault Module --- */
-        .contact-central-box {
+        /* --- About Section --- */
+        .about-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: center;
             padding: 60px;
-            text-align: center;
-            max-width: 900px;
-            margin: 40px auto 0 auto;
-        }
-        .contact-channels-matrix {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 45px;
-        }
-        .channel-card {
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            text-decoration: none;
-            display: block;
-        }
-        .channel-card:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.02);
-        }
-        .channel-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .channel-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-main);
         }
 
-        /* --- Liquid Light Screen-Overlay Card Module --- */
-        .glass-modal-backdrop {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 8, 15, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s var(--ios-curve);
-            padding: 16px;
-        }
-        .glass-modal-backdrop.modal-active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .interactive-preview-card {
-            width: 100%;
-            max-width: 440px;
-            transform: scale(0.92) translateY(15px);
-            transition: transform 0.5s var(--fluid-bounce);
-            padding: 0;
+        .about-image {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
             position: relative;
         }
-        .glass-modal-backdrop.modal-active .interactive-preview-card {
-            transform: scale(1) translateY(0);
-        }
-        .modal-close-trigger {
-            position: absolute;
-            top: 16px; right: 16px;
-            width: 36px; height: 36px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-            color: #0b0e14;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .modal-close-trigger:hover {
-            transform: scale(1.05);
-            background: #ffffff;
-        }
-        .modal-hero-image {
+
+        .about-image img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
-        .modal-body-content {
-            padding: 24px;
-        }
-        .modal-body-content .land-price-metric {
-            font-size: 1.8rem;
-        }
-        .modal-body-content .land-title-headline {
-            font-size: 1.3rem;
-            white-space: normal;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-        .modal-action-row {
-            margin-top: 24px;
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-        .modal-action-row .btn-nav-action {
-            text-align: center;
-            padding: 12px;
-            margin-left: 0;
+
+        .about-text {
+            flex: 1;
         }
 
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* --- Contact Section --- */
+        .contact-wrapper {
+            display: flex;
+            gap: 60px;
+            padding: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .contact-details div {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-details span {
+            color: var(--accent-gold);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .contact-form button {
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            font-family: inherit;
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 80px 24px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(120, 120, 120, 0.1);
-            margin-top: 100px;
+            padding: 40px 20px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .scroll-reveal-node {
+        /* --- Scroll Animations --- */
+        .reveal {
             opacity: 0;
-            transform: translateY(35px);
-            transition: transform 0.9s var(--ios-curve), opacity 0.9s var(--ios-curve);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .scroll-reveal-node.revealed {
+
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        @keyframes seamlessFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -40px) scale(1.03); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-        /* --- Cross-Platform Adaptive Interface Rules (Mobile, Tabs, Laptops, PC) --- */
-        @media (max-width: 768px) {
-            #dock-nav {
-                padding: 6px 10px 6px 16px;
-                width: 96%;
-                top: 12px;
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .about-wrapper, .contact-wrapper {
+                flex-direction: column;
+                padding: 40px 20px;
             }
-            .nav-logo {
-                font-size: 1.05rem;
-                letter-spacing: 0.5px;
+            nav {
+                padding: 15px 20px;
             }
-            .nav-center-links a {
-                padding: 6px 8px;
-                font-size: 0.7rem;
-                letter-spacing: 0px;
-            }
-            .btn-nav-action {
-                padding: 6px 12px;
-                font-size: 0.7rem;
-                margin-left: 4px;
-            }
-            .theme-toggle {
-                width: 32px;
-                height: 32px;
-            }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .about-details-card { padding: 32px 20px; }
-            .contact-channels-matrix { grid-template-columns: 1fr; gap: 16px; }
-        }
-
-        @media (max-width: 480px) {
-            #dock-nav {
-                padding: 6px 8px 6px 12px;
-            }
-            .nav-logo {
-                display: none;
-            }
-            .nav-center-links a {
-                padding: 6px 6px;
-                font-size: 0.68rem;
+            .nav-links {
+                display: none; /* Hide on mobile for simplicity in this template */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cross-Platform Constant Structural Dock Container -->
-    <nav id="dock-nav" class="glass-panel">
-        <a href="#home" class="nav-logo">NAITRIKA</a>
-        
-        <div class="nav-right-cluster">
-            <div class="nav-center-links">
-                <a href="#home">Home</a>
-                <a href="#about">Founder</a>
-                <a href="#portfolio">Acreage</a>
-            </div>
-            
-            <a href="#contact" class="btn-nav-action">Contact</a>
-            
-            <!-- Unified Theme Switcher - Locked to the end -->
-            <button class="theme-toggle" id="themeToggleSwitch" aria-label="Toggle Interface Theme">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
+    <!-- Liquid Background -->
+    <div class="liquid-bg">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <!-- Glass Navigation -->
+    <nav class="glass-panel">
+        <a href="#" class="logo serif">Lumina</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Sub-Surface Plasma Flow Field -->
-    <div class="plasma-backdrop">
-        <div class="plasma-orb orb-1"></div>
-        <div class="plasma-orb orb-2"></div>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content glass-panel reveal">
+            <p style="color: var(--accent-gold); letter-spacing: 4px; text-transform: uppercase; font-size: 12px; margin-bottom: 20px;">Est. 2026</p>
+            <h1>Capturing <i>Elegance</i> in Every Frame.</h1>
+            <p>We craft timeless, cinematic imagery for those who appreciate the poetry of light, shadow, and authentic emotion.</p>
+            <a href="#portfolio" class="btn btn-primary">Discover the Art</a>
+        </div>
+    </section>
 
-    <!-- Hero Identity Canopy -->
-    <section id="home">
-        <div>
-            <p class="hero-tag">Naitrika Private Holdings</p>
-            <h1 class="hero-title">Bespoke Topography & Architectural Foundations</h1>
-            <div class="luxury-quote-block">
-                “Land is not merely an asset transaction; it is the permanent physical canvas upon which generational legacies are structurally designed and anchored.”
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header reveal">
+            <p>Selected Works</p>
+            <h2>The Portfolio</h2>
+        </div>
+        <div class="portfolio-grid">
+            <!-- Unsplash High-Res Placeholder Images -->
+            <div class="portfolio-item glass-panel reveal">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Fashion Portrait">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">Avant Garde</h3>
+                </div>
+            </div>
+            <div class="portfolio-item glass-panel reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Beauty Portrait">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">Ethereal Beauty</h3>
+                </div>
+            </div>
+            <div class="portfolio-item glass-panel reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Wedding Photography">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">Vows & Light</h3>
+                </div>
+            </div>
+            <div class="portfolio-item glass-panel reveal">
+                <img src="https://images.unsplash.com/photo-1605369572399-05d8d64a0f6e?auto=format&fit=crop&w=800&q=80" alt="Editorial Portrait">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">The Editorial</h3>
+                </div>
+            </div>
+            <div class="portfolio-item glass-panel reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Couple Photography">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">Silhouettes</h3>
+                </div>
+            </div>
+            <div class="portfolio-item glass-panel reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Fine Art Photography">
+                <div class="portfolio-overlay">
+                    <h3 class="serif">Fine Art</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Founder Architectural Narrative Module -->
-    <section id="about" class="scroll-reveal-node">
-        <div class="about-grid">
-            <div class="founder-img-frame">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Darshan Gowda - Founder">
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header reveal">
+            <p>The Artist</p>
+            <h2>Behind the Lens</h2>
+        </div>
+        <div class="about-wrapper glass-panel reveal">
+            <div class="about-image">
+                <!-- Professional Photographer Image -->
+                <img src="https://images.unsplash.com/photo-1554046920-90dcac2a373b?auto=format&fit=crop&w=800&q=80" alt="Photographer Headshot">
             </div>
-            <div class="about-details-card glass-panel">
-                <p class="hero-tag">The Visionary</p>
-                <h2 class="section-headline">Darshan Gowda</h2>
-                <p class="about-text">
-                    Welcome to Naitrika Real Estate. Founded under a clear design principle by Darshan Gowda, our enterprise establishes structural clarity alongside absolute verification protocols across elite land investments.
-                </p>
-                <p class="about-text">
-                    We unify high-tier spatial design with rigorous legal cross-checking, ensuring each plot in our holding catalog is completely optimized for multi-generational land acquisition and custom architectural expansion.
-                </p>
-                <div class="signature-group">
-                    <h4>Darshan Gowda</h4>
-                    <p>Founder & Managing Director</p>
-                </div>
+            <div class="about-text">
+                <h2 class="serif">Alexander Vance</h2>
+                <p>Photography is more than merely freezing a moment; it is the art of distilling human emotion into a physical legacy. With over a decade of experience shooting high-end editorial and luxury weddings globally, I bring a cinematic approach to everyday beauty.</p>
+                <p>My philosophy is rooted in observation. By creating a relaxed, transparent environment, I allow your true essence to emerge. No stiff poses—just you, bathed in the finest light, translated through my unique glass lens.</p>
+                <div class="signature">A. Vance</div>
             </div>
         </div>
     </section>
 
-    <!-- OLX Property Catalog Configuration Grid Matrix (Exactly 15 Cards Loaded) -->
-    <section id="portfolio" class="scroll-reveal-node">
-        <div class="center-title-header">
-            <p class="hero-tag">Curated Land Metrics</p>
-            <h2 class="section-headline">Verified Allocations Catalog</h2>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header reveal">
+            <p>Inquiries</p>
+            <h2>Get in Touch</h2>
         </div>
-
-        <div class="land-catalog-matrix">
-            
-            <!-- Plot 1 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 4,50,00,000</div>
-                    <div class="land-title-headline">Elysian Crest Valley Acres</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">120 x 80 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">9,600 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 2 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 2,80,00,000</div>
-                    <div class="land-title-headline">Obsidian Meadow Plots</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">100 x 60 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">6,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 3 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Premium</span>
-                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 7,20,00,000</div>
-                    <div class="land-title-headline">Highland Ridge Premium</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">150 x 120 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">18,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 4 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 3,90,00,000</div>
-                    <div class="land-title-headline">Amber Woods Development</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">110 x 70 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">7,700 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 5 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 1,95,00,000</div>
-                    <div class="land-title-headline">Glencoe Green Fields</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">80 x 50 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">4,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 6 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">New Launch</span>
-                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 9,50,00,000</div>
-                    <div class="land-title-headline">Alpine Vista Domain</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">200 x 150 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">30,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 7 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 5,10,00,000</div>
-                    <div class="land-title-headline">Serenity Springs Enclave</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">130 x 90 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">11,700 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 8 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Premium</span>
-                    <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 6,40,00,000</div>
-                    <div class="land-title-headline">Summit View Ridge Plots</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">140 x 100 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">14,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 9 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 3,25,00,000</div>
-                    <div class="land-title-headline">Palisades Creek Matrix</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">100 x 75 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">7,500 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 10 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 4,80,00,000</div>
-                    <div class="land-title-headline">Silver Lake Meadowlands</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">125 x 85 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">10,625 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 11 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Premium</span>
-                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 8,10,00,000</div>
-                    <div class="land-title-headline">Equinox Horizon Plateau</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">180 x 110 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">19,800 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 12 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 2,40,00,000</div>
-                    <div class="land-title-headline">Sylvan Crest Woodlands</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">90 x 60 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">5,400 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 13 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 5,70,00,000</div>
-                    <div class="land-title-headline">Solitude Valley Estate</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">140 x 95 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">13,300 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 14 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Premium</span>
-                    <img src="https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 6,90,00,000</div>
-                    <div class="land-title-headline">Cascade Stream Holdings</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">150 x 110 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">16,500 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plot 15 -->
-            <div class="land-card glass-panel">
-                <div class="land-img-frame">
-                    <span class="card-badge">Verified</span>
-                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=80" alt="Plot Location Asset">
-                </div>
-                <div class="land-data-block">
-                    <div class="land-price-metric">₹ 3,10,00,000</div>
-                    <div class="land-title-headline">Verdant Ascent Enclosure</div>
-                    <div class="olx-meta-bar">
-                        <div class="olx-meta-unit"><span class="olx-meta-label">Dimensions</span><span class="olx-meta-value">100 x 70 ft</span></div>
-                        <div class="olx-meta-unit" style="text-align:right;"><span class="olx-meta-label">Area</span><span class="olx-meta-value">7,000 sq ft</span></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Communication Gateway Vault Base -->
-    <section id="contact" class="scroll-reveal-node">
-        <div class="contact-central-box glass-panel">
-            <p class="hero-tag">Private Acquisition Desks</p>
-            <h2 class="section-headline">Initiate Secure Consultations</h2>
-            
-            <div class="contact-channels-matrix">
-                <a href="mailto:concierge@naitrika.com" class="channel-card">
-                    <span class="channel-label">Direct Email</span>
-                    <span class="channel-value">concierge@naitrika.com</span>
-                </a>
-                <a href="https://wa.me/1234567890" target="_blank" class="channel-card">
-                    <span class="channel-label">WhatsApp Private Line</span>
-                    <span class="channel-value">+1 (234) 567-890</span>
-                </a>
-                <a href="tel:+1234567890" class="channel-card">
-                    <span class="channel-label">Concierge Call Desk</span>
-                    <span class="channel-value">+1 (234) 567-890</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Liquid Screen Focus Overlay Model Container -->
-    <div class="glass-modal-backdrop" id="propertyDetailsModal">
-        <div class="interactive-preview-card glass-panel">
-            <button class="modal-close-trigger" id="closeModalTrigger" aria-label="Dismiss Modal">✕</button>
-            <img src="" alt="Premium Land Asset Focused" class="modal-hero-image" id="modalTargetImg">
-            <div class="modal-body-content">
-                <div class="land-price-metric" id="modalTargetPrice">₹ 0,00,00,000</div>
-                <h3 class="land-title-headline" id="modalTargetTitle">Loading Asset Allocation...</h3>
+        <div class="contact-wrapper glass-panel reveal">
+            <div class="contact-info">
+                <h2 class="serif">Let's Create Together</h2>
+                <p>Currently accepting commissions for the 2026-2027 season. Please fill out the form, and my studio manager will return your inquiry within 24 hours.</p>
                 
-                <div class="olx-meta-bar" style="margin-bottom: 12px;">
-                    <div class="olx-meta-unit">
-                        <span class="olx-meta-label">Dimensions</span>
-                        <span class="olx-meta-value" id="modalTargetDim">000 x 000 ft</span>
+                <div class="contact-details">
+                    <div>
+                        <span>Studio Location</span>
+                        124 Obsidian Way, Art District<br>New York, NY 10012
                     </div>
-                    <div class="olx-meta-unit" style="text-align:right;">
-                        <span class="olx-meta-label">Total Plot Area</span>
-                        <span class="olx-meta-value" id="modalTargetArea">0,000 sq ft</span>
+                    <div>
+                        <span>Direct Inquiry</span>
+                        hello@luminaphotography.com<br>+1 (555) 019-8372
                     </div>
-                </div>
-                
-                <div class="modal-action-row">
-                    <a href="#contact" class="btn-nav-action" id="modalContactAnchor">Acquire Site Blueprint</a>
+                    <div style="margin-top: 40px; display: flex; gap: 20px;">
+                        <!-- Social placeholders -->
+                        <a href="#" style="color: white; text-decoration: none;">Instagram</a>
+                        <a href="#" style="color: white; text-decoration: none;">Behance</a>
+                        <a href="#" style="color: white; text-decoration: none;">Vogue</a>
+                    </div>
                 </div>
             </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your inquiry. The message has been sent through the glass.');">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Event Type / Shoot Type">
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Tell me about your vision..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer Meta Layout -->
+    <!-- Footer -->
     <footer>
-        <p>© 2026 Naitrika Real Estate. Ultra-Glass Structural Interface. All Land Portfolio Assets Registered Privately.</p>
+        <p>&copy; 2026 Lumina Photography. Crafted with Liquid Glass UI.</p>
     </footer>
 
-    <!-- Core Automation Logic Pipeline -->
+    <!-- JavaScript for Scroll Reveal Animation -->
     <script>
-        const themeBtn = document.getElementById('themeToggleSwitch');
-        const rootNode = document.documentElement;
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
 
-        themeBtn.addEventListener('click', () => {
-            const currentMode = rootNode.getAttribute('data-theme');
-            const targetMode = currentMode === 'dark' ? 'light' : 'dark';
-            rootNode.setAttribute('data-theme', targetMode);
-            
-            if (targetMode === 'light') {
-                themeBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-            } else {
-                themeBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-            }
-        });
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 150;
 
-        const interactivePanels = document.querySelectorAll('.glass-panel');
-        document.addEventListener('mousemove', (e) => {
-            interactivePanels.forEach(panel => {
-                const geometry = panel.getBoundingClientRect();
-                const axisX = e.clientX - geometry.left;
-                const axisY = e.clientY - geometry.top;
-                panel.style.setProperty('--specular-x', `${(axisX / geometry.width) * 100}%`);
-                panel.style.setProperty('--specular-y', `${(axisY / geometry.height) * 100}%`);
-            });
-        });
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add("active");
+                    }
+                });
+            };
 
-        document.querySelectorAll('a[href^="#"]').forEach(navigationLink => {
-            navigationLink.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetNode = document.querySelector(targetId);
-                if (targetNode) {
-                    targetNode.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        let priorScrollIndex = window.scrollY;
-        const navigationDock = document.getElementById('dock-nav');
-
-        window.addEventListener('scroll', () => {
-            const currentScrollIndex = window.scrollY;
-            
-            if (currentScrollIndex > priorScrollIndex && currentScrollIndex > 150) {
-                navigationDock.style.transform = 'translateX(-50%) translateY(-120px)';
-                navigationDock.style.opacity = '0';
-            } else {
-                navigationDock.style.transform = 'translateX(-50%) translateY(0)';
-                navigationDock.style.opacity = '1';
-                if(currentScrollIndex > 50) {
-                    navigationDock.style.backgroundColor = 'var(--glass-bg-hover)';
-                } else {
-                    navigationDock.style.backgroundColor = 'var(--glass-bg)';
-                }
-            }
-            priorScrollIndex = currentScrollIndex;
-        });
-
-        const intersectionConfig = { threshold: 0.05, rootMargin: "0px 0px -40px 0px" };
-        const viewObserverInstance = new IntersectionObserver((monitoredElements, currentObserver) => {
-            monitoredElements.forEach(element => {
-                if(element.isIntersecting) {
-                    element.target.classList.add('revealed');
-                    currentObserver.unobserve(element.target);
-                }
-            });
-        }, intersectionConfig);
-
-        document.querySelectorAll('.scroll-reveal-node').forEach(node => viewObserverInstance.observe(node));
-
-        /* --- Dynamic Portfolio Detail Display Pipeline --- */
-        const detailsOverlay = document.getElementById('propertyDetailsModal');
-        const overlayCloseBtn = document.getElementById('closeModalTrigger');
-        const modalImage = document.getElementById('modalTargetImg');
-        const modalPrice = document.getElementById('modalTargetPrice');
-        const modalTitle = document.getElementById('modalTargetTitle');
-        const modalDimensions = document.getElementById('modalTargetDim');
-        const modalArea = document.getElementById('modalTargetArea');
-        const modalContactLink = document.getElementById('modalContactAnchor');
-
-        document.querySelectorAll('.land-img-frame').forEach(imageWrapperFrame => {
-            imageWrapperFrame.addEventListener('click', (e) => {
-                const structuredParentCard = imageWrapperFrame.closest('.land-card');
-                
-                const assetImageUrl = imageWrapperFrame.querySelector('img').src;
-                const assetValuation = structuredParentCard.querySelector('.land-price-metric').innerText;
-                const assetHeadline = structuredParentCard.querySelector('.land-title-headline').innerText;
-                const metaValues = structuredParentCard.querySelectorAll('.olx-meta-value');
-                const assetDimensions = metaValues[0].innerText;
-                const assetTotalArea = metaValues[1].innerText;
-
-                modalImage.src = assetImageUrl;
-                modalPrice.innerText = assetValuation;
-                modalTitle.innerText = assetHeadline;
-                modalDimensions.innerText = assetDimensions;
-                modalArea.innerText = assetTotalArea;
-
-                detailsOverlay.classList.add('modal-active');
-            });
-        });
-
-        const deactivateModal = () => detailsOverlay.classList.remove('modal-active');
-        overlayCloseBtn.addEventListener('click', deactivateModal);
-        modalContactLink.addEventListener('click', deactivateModal);
-        
-        detailsOverlay.addEventListener('click', (e) => {
-            if(e.target === detailsOverlay) deactivateModal();
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); // Trigger once on load
         });
     </script>
 </body>
