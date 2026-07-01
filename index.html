@@ -1,8 +1,3 @@
-To stabilize the UI while amplifying the **iOS 26 High-Gloss Liquid Glass** aesthetic, this architecture removes the aggressive 3D tilting on the cards to make them feel **smooth, heavy, and steady**.
-
-The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fluid Animation Engine** using pure CSS compositing layers (`will-change`, custom bezier cubic equations, and structural scale transformations). The glass surfaces use complex multiple-stacked drop shadows and inner specularity mapping (`inset 0 1px 0px...`) to replicate high-end glass physical refraction models.
-
-```html
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -187,7 +182,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
             box-shadow: var(--steady-shadow-hover);
         }
 
-        /* Buttery Liquid Action Elements */
+        /* Buttery Liquid Action Elements --- */
         .glass-btn {
             background: rgba(255, 255, 255, 0.35);
             backdrop-filter: blur(20px) saturate(180%);
@@ -637,6 +632,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
 </head>
 <body>
 
+    <!-- Smooth Curtain Loading Stage -->
     <div id="loader-curtain">
         <div class="loader-logo">
             NAITRIKA
@@ -645,6 +641,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         <div class="loader-bar"></div>
     </div>
 
+    <!-- Apple iOS Styled Floating Dock System -->
     <nav id="dock-nav" class="glass-panel">
         <a href="#home" class="nav-logo">NAITRIKA</a>
         <div class="nav-links">
@@ -662,12 +659,14 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </nav>
 
+    <!-- Moving Sub-Surface Liquid Organics -->
     <div class="plasma-backdrop">
         <div class="plasma-orb orb-alpha"></div>
         <div class="plasma-orb orb-beta"></div>
         <div class="plasma-orb orb-gamma"></div>
     </div>
 
+    <!-- Landing Structural Masthead -->
     <section id="home">
         <div class="hero-canvas">
             <p class="hero-tagline">Architectural Masterpieces</p>
@@ -677,6 +676,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </section>
 
+    <!-- Enterprise Studio Module -->
     <section id="about" class="smooth-reveal">
         <div class="content-container about-split-grid">
             <div class="media-viewport">
@@ -712,6 +712,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </section>
 
+    <!-- Leadership Blueprint Configuration (Steady Profile Overlay) -->
     <section id="executive" class="smooth-reveal">
         <div class="content-container about-split-grid">
             <div class="executive-text-panel glass-panel">
@@ -736,6 +737,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </section>
 
+    <!-- Curated Portfolio Arrays -->
     <section id="lands" class="smooth-reveal">
         <div class="content-container">
             <div class="center-heading-block">
@@ -744,6 +746,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
             </div>
 
             <div class="showcase-matrix">
+                <!-- Estate Element One -->
                 <div class="portfolio-card glass-panel">
                     <div class="card-header-viewport">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Luminary Pavilion" loading="lazy">
@@ -757,6 +760,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
                     </div>
                 </div>
 
+                <!-- Estate Element Two -->
                 <div class="portfolio-card glass-panel">
                     <div class="card-header-viewport">
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Atrium" loading="lazy">
@@ -773,6 +777,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </section>
 
+    <!-- Contact Gateway Area -->
     <section id="contact" class="smooth-reveal">
         <div class="contact-card-box glass-panel">
             <p class="hero-tagline" style="margin-bottom:10px;">Private Consultation</p>
@@ -796,6 +801,7 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
         </div>
     </section>
 
+    <!-- JavaScript Real-Time High-Fidelity Physics Handlers -->
     <script>
         // Smooth Adaptive Palette Toggler
         const themeToggleBtn = document.getElementById('themeToggle');
@@ -830,6 +836,19 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
             });
         });
 
+        // Intercept standard jumps to ensure buttery-smooth deceleration profile on local links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const destination = document.querySelector(this.getAttribute('href'));
+                if(destination) {
+                    destination.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         // Adaptive Inertial Reveal Pipeline (Intersection Observer API)
         const transitionSettings = {
             threshold: 0.08,
@@ -851,5 +870,3 @@ The "buttery smooth" physics are achieved via a native **Hardware-Accelerated Fl
     </script>
 </body>
 </html>
-
-```
