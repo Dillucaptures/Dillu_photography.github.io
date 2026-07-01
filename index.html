@@ -355,6 +355,7 @@
             overflow: hidden;
             border-radius: 24px 24px 0 0;
             position: relative;
+            cursor: pointer;
         }
         .land-img-frame img {
             width: 100%;
@@ -365,6 +366,28 @@
         .land-card:hover .land-img-frame img {
             transform: scale(1.05);
         }
+        
+        /* Interactive Overlay Indicator on Image Hover */
+        .land-img-frame::after {
+            content: 'View Details';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 14, 20, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .land-img-frame:hover::after {
+            opacity: 1;
+        }
+
         .card-badge {
             position: absolute;
             top: 16px; left: 16px;
@@ -378,6 +401,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            z-index: 3;
         }
 
         /* OLX Specific UI Elements Meta Alignment Block */
@@ -468,6 +492,84 @@
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-main);
+        }
+
+        /* --- Liquid Light Screen-Overlay Card Module --- */
+        .glass-modal-backdrop {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 8, 15, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s var(--ios-curve);
+            padding: 24px;
+        }
+        .glass-modal-backdrop.modal-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .interactive-preview-card {
+            width: 100%;
+            max-width: 480px;
+            transform: scale(0.92) translateY(15px);
+            transition: transform 0.5s var(--fluid-bounce);
+            padding: 0;
+            position: relative;
+        }
+        .glass-modal-backdrop.modal-active .interactive-preview-card {
+            transform: scale(1) translateY(0);
+        }
+        .modal-close-trigger {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 36px; height: 36px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            color: #0b0e14;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .modal-close-trigger:hover {
+            transform: scale(1.05);
+            background: #ffffff;
+        }
+        .modal-hero-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .modal-body-content {
+            padding: 32px;
+        }
+        .modal-body-content .land-price-metric {
+            font-size: 2rem;
+        }
+        .modal-body-content .land-title-headline {
+            font-size: 1.4rem;
+            white-space: normal;
+            margin-bottom: 24px;
+            font-family: 'Playfair Display', serif;
+        }
+        .modal-action-row {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .modal-action-row .btn-nav-action {
+            text-align: center;
+            padding: 14px;
         }
 
         footer {
@@ -844,6 +946,33 @@
         </div>
     </section>
 
+    <!-- Global Liquid Screen Focus Overlay Model Container -->
+    <div class="glass-modal-backdrop" id="propertyDetailsModal">
+        <div class="interactive-preview-card glass-panel">
+            <button class="modal-close-trigger" id="closeModalTrigger" aria-label="Dismiss Modal">✕</button>
+            <img src="" alt="Premium Land Asset Focused" class="modal-hero-image" id="modalTargetImg">
+            <div class="modal-body-content">
+                <div class="land-price-metric" id="modalTargetPrice">₹ 0,00,00,000</div>
+                <h3 class="land-title-headline" id="modalTargetTitle">Loading Asset Allocation...</h3>
+                
+                <div class="olx-meta-bar" style="margin-bottom: 12px;">
+                    <div class="olx-meta-unit">
+                        <span class="olx-meta-label">Dimensions</span>
+                        <span class="olx-meta-value" id="modalTargetDim">000 x 000 ft</span>
+                    </div>
+                    <div class="olx-meta-unit" style="text-align:right;">
+                        <span class="olx-meta-label">Total Plot Area</span>
+                        <span class="olx-meta-value" id="modalTargetArea">0,000 sq ft</span>
+                    </div>
+                </div>
+                
+                <div class="modal-action-row">
+                    <a href="#contact" class="btn-nav-action" id="modalContactAnchor">Acquire Site Blueprint</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer Meta Layout -->
     <footer>
         <p>© 2026 Naitrika Real Estate. Ultra-Glass Structural Interface. All Land Portfolio Assets Registered Privately.</p>
@@ -927,6 +1056,51 @@
         }, intersectionConfig);
 
         document.querySelectorAll('.scroll-reveal-node').forEach(node => viewObserverInstance.observe(node));
+
+        /* --- Dynamic Portfolio Detail Display Pipeline --- */
+        const detailsOverlay = document.getElementById('propertyDetailsModal');
+        const overlayCloseBtn = document.getElementById('closeModalTrigger');
+        const modalImage = document.getElementById('modalTargetImg');
+        const modalPrice = document.getElementById('modalTargetPrice');
+        const modalTitle = document.getElementById('modalTargetTitle');
+        const modalDimensions = document.getElementById('modalTargetDim');
+        const modalArea = document.getElementById('modalTargetArea');
+        const modalContactLink = document.getElementById('modalContactAnchor');
+
+        // Capture data dynamically from clicked assets
+        document.querySelectorAll('.land-img-frame').forEach(imageWrapperFrame => {
+            imageWrapperFrame.addEventListener('click', (e) => {
+                const structuredParentCard = imageWrapperFrame.closest('.land-card');
+                
+                // Extract metrics via structural children query lookups
+                const assetImageUrl = imageWrapperFrame.querySelector('img').src;
+                const assetValuation = structuredParentCard.querySelector('.land-price-metric').innerText;
+                const assetHeadline = structuredParentCard.querySelector('.land-title-headline').innerText;
+                const metaValues = structuredParentCard.querySelectorAll('.olx-meta-value');
+                const assetDimensions = metaValues[0].innerText;
+                const assetTotalArea = metaValues[1].innerText;
+
+                // Bind metrics into the Display Modal UI
+                modalImage.src = assetImageUrl;
+                modalPrice.innerText = assetValuation;
+                modalTitle.innerText = assetHeadline;
+                modalDimensions.innerText = assetDimensions;
+                modalArea.innerText = assetTotalArea;
+
+                // Open the modal container layout safely on the page
+                detailsOverlay.classList.add('modal-active');
+            });
+        });
+
+        // Close functions setup
+        const deactivateModal = () => detailsOverlay.classList.remove('modal-active');
+        overlayCloseBtn.addEventListener('click', deactivateModal);
+        modalContactLink.addEventListener('click', deactivateModal);
+        
+        // Tap out of layout boundaries to close
+        detailsOverlay.addEventListener('click', (e) => {
+            if(e.target === detailsOverlay) deactivateModal();
+        });
     </script>
 </body>
 </html>
