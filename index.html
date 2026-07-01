@@ -1,70 +1,47 @@
+Here is the complete, production-ready code. To make the interface look like **iOS 26 Liquid Glass**, the glass panel backgrounds have been dropped to a hyper-transparent rgba(255, 255, 255, 0.15) while simultaneously boosting the backdrop blur to an extreme 80px. This keeps the layout incredibly fluid and glass-like while creating high contrast against crisp, dark, high-readability typography.
+The property cards feature an elegant, streamlined **OLX-inspired structured layout** showing the core metrics at a single glance: **Image, Pricing, Dimensions, and Total Area**, multiplied across 15 distinct high-end luxury land allocations.
+Save the code below as an .html file (e.g., index.html) and open it in any browser to execute:
+```html
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naitrika Real Estate | Premium Spaces & Development</title>
+    <title>Naitrika Real Estate | Premium Liquid Glass Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- iOS 26 High-Gloss Structural Specs --- */
+        /* --- iOS 26 Liquid Ultra-Glass Structural Architecture --- */
         :root {
-            --ios-curve: cubic-bezier(0.16, 1, 0.3, 1); /* Apple True Inertial Curve */
-            --fluid-bounce: cubic-bezier(0.25, 1.25, 0.5, 1); /* Micro Liquid Easing */
-            --ios-blur: blur(60px) saturate(210%);
+            --ios-curve: cubic-bezier(0.16, 1, 0.3, 1);
+            --fluid-bounce: cubic-bezier(0.25, 1.22, 0.45, 1);
+            --liquid-blur: blur(80px) saturate(230%);
             
-            /* Light Mode Spec (Ultra-Premium Glass Physics) */
-            --bg-base: #f4f6fa;
-            --bg-gradient: radial-gradient(circle at 50% -20%, #ffffff 0%, #edf2f9 60%, #e3eaf5 100%);
-            --glass-bg: rgba(255, 255, 255, 0.42);
-            --glass-bg-hover: rgba(255, 255, 255, 0.62);
-            --glass-border: rgba(255, 255, 255, 0.8);
-            --glass-border-outer: rgba(9, 32, 76, 0.04);
-            --glass-highlight: rgba(255, 255, 255, 0.95);
-            --gold: #7c5b0b;
-            --gold-glow: rgba(124, 91, 11, 0.12);
-            --text-main: #0c0d12;
-            --text-muted: #5a6275;
+            /* Hyper-Transparent Glass Variables */
+            --bg-base: #f0f4f9;
+            --bg-gradient: linear-gradient(135deg, #f5f8fc 0%, #e4ecf5 50%, #dee7f2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-bg-hover: rgba(255, 255, 255, 0.28);
+            --glass-border: rgba(255, 255, 255, 0.65);
+            --glass-border-outer: rgba(9, 32, 76, 0.05);
+            --glass-highlight: rgba(255, 255, 255, 0.85);
             
-            /* Layered Precision Shadows for Steady Depth */
-            --steady-shadow: 0 4px 24px rgba(9, 27, 61, 0.03),
-                              0 20px 48px rgba(9, 27, 61, 0.04),
-                              0 1px 2px rgba(0, 0, 0, 0.01),
+            /* High-Contrast Luxury Dark Typography & Tones */
+            --text-main: #0a0c10;
+            --text-muted: #2d3542;
+            --gold-accent: #705207;
+            --price-tag: #0b613a;
+            
+            /* Steady Weightless Layered Refraction Shadows */
+            --steady-shadow: 0 4px 30px rgba(9, 27, 61, 0.02),
+                              0 20px 50px rgba(9, 27, 61, 0.04),
                               inset 0 1px 0px var(--glass-highlight);
                               
-            --steady-shadow-hover: 0 12px 36px rgba(9, 27, 61, 0.05),
-                                    0 32px 72px rgba(9, 27, 61, 0.08),
-                                    0 1px 2px rgba(0, 0, 0, 0.02),
+            --steady-shadow-hover: 0 16px 40px rgba(9, 27, 61, 0.06),
+                                    0 32px 80px rgba(9, 27, 61, 0.09),
                                     inset 0 1px 0px var(--glass-highlight);
-                                    
-            --liquid-fluid-1: #e2eeff;
-            --liquid-fluid-2: #fcf1d9;
-        }
-
-        [data-theme="dark"] {
-            --bg-base: #04060a;
-            --bg-gradient: radial-gradient(circle at 50% -20%, #0d121f 0%, #06090f 70%, #020305 100%);
-            --glass-bg: rgba(14, 20, 32, 0.4);
-            --glass-bg-hover: rgba(24, 33, 52, 0.52);
-            --glass-border: rgba(255, 255, 255, 0.07);
-            --glass-border-outer: rgba(0, 0, 0, 0.4);
-            --glass-highlight: rgba(255, 255, 255, 0.15);
-            --gold: #ebc461;
-            --gold-glow: rgba(235, 196, 97, 0.22);
-            --text-main: #f4f6fa;
-            --text-muted: #8c98ad;
-            
-            --steady-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
-                              0 4px 12px rgba(0, 0, 0, 0.2),
-                              inset 0 1px 1px rgba(255, 255, 255, 0.1);
-            --steady-shadow-hover: 0 32px 70px rgba(0, 0, 0, 0.55),
-                                    0 8px 24px rgba(0, 0, 0, 0.3),
-                                    inset 0 1px 1px rgba(255, 255, 255, 0.15);
-                                    
-            --liquid-fluid-1: #0f182b;
-            --liquid-fluid-2: #241d0b;
         }
 
         * {
@@ -73,7 +50,6 @@
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         html {
@@ -89,208 +65,110 @@
             color: var(--text-main);
             min-height: 100vh;
             width: 100%;
-            transition: background 0.8s var(--ios-curve);
         }
 
-        /* --- Apple Inertial Scrollbar Physics --- */
-        ::-webkit-scrollbar { width: 10px; }
+        /* --- Apple Fluid Scroll Mechanics --- */
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { 
-            background: rgba(0, 0, 0, 0.12); 
+            background: rgba(10, 12, 16, 0.15); 
             border-radius: 100px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
         }
-        [data-theme="dark"]::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); }
 
-        /* --- Curtain Entrance Animation --- */
+        /* --- Liquid Loading Stage --- */
         #loader-curtain {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-base);
+            background: #f4f7f6;
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            animation: curtainDismiss 1.3s cubic-bezier(0.85, 0, 0.15, 1) forwards 2.2s;
+            animation: curtainDismiss 1s cubic-bezier(0.85, 0, 0.15, 1) forwards 1.8s;
             pointer-events: none;
         }
-
         .loader-logo {
             font-family: 'Cinzel', serif;
-            font-size: calc(2rem + 1.8vw);
-            letter-spacing: 16px;
+            font-size: 2.2rem;
+            letter-spacing: 12px;
             color: var(--text-main);
-            opacity: 0;
-            transform: translateY(25px) scale(0.96);
-            animation: initialReveal 1.1s var(--ios-curve) forwards 0.3s;
             text-align: center;
         }
-
-        .loader-logo span {
-            display: block;
-            font-size: 0.8rem;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 10px;
-            color: var(--gold);
-            margin-top: 16px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
         .loader-bar {
-            width: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin-top: 35px;
-            animation: lineStance 1.2s var(--ios-curve) forwards 1.1s;
+            width: 160px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+            margin-top: 20px;
         }
 
-        /* --- The Solid Glass Engine (Steady & Smooth) --- */
+        /* --- The Solid Glass Engine --- */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: var(--ios-blur);
-            -webkit-backdrop-filter: var(--ios-blur);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
             border: 1px solid var(--glass-border);
             outline: 1px solid var(--glass-border-outer);
-            border-radius: 32px;
+            border-radius: 24px;
             box-shadow: var(--steady-shadow);
             position: relative;
             overflow: hidden;
-            will-change: background-color, box-shadow;
-            transition: background-color 0.6s var(--ios-curve), 
-                        box-shadow 0.6s var(--ios-curve), 
-                        border-color 0.6s var(--ios-curve);
+            transition: background-color 0.5s var(--ios-curve), box-shadow 0.5s var(--ios-curve);
         }
-
-        /* Liquid Mirror Dynamic Reflectance mapping layer */
-        .glass-panel::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at var(--specular-x, 50%) var(--specular-y, 50%), 
-                        rgba(255, 255, 255, 0.18) 0%, 
-                        transparent 70%);
-            pointer-events: none;
-            z-index: 2;
-            mix-blend-mode: overlay;
-            transition: opacity 0.5s var(--ios-curve);
-        }
-
         .glass-panel:hover {
             background: var(--glass-bg-hover);
             box-shadow: var(--steady-shadow-hover);
         }
 
-        /* Buttery Liquid Action Elements --- */
-        .glass-btn {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            outline: 1px solid var(--glass-border-outer);
-            color: var(--text-main);
-            padding: 16px 36px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 8px 20px rgba(9,30,66,0.03);
-            will-change: transform, background-color, box-shadow;
-            transition: transform 0.4s var(--fluid-bounce), 
-                        background-color 0.4s var(--ios-curve), 
-                        box-shadow 0.4s var(--ios-curve);
+        /* Refraction Specular Trackers */
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at var(--specular-x, 50%) var(--specular-y, 50%), rgba(255, 255, 255, 0.25) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 2;
+            mix-blend-mode: overlay;
         }
 
-        .glass-btn:hover {
-            transform: translateY(-2px) scale(1.03);
-            background: rgba(255, 255, 255, 0.65);
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 16px 32px rgba(9,30,66,0.06);
-        }
-
-        .glass-btn:active {
-            transform: translateY(0px) scale(0.97);
-        }
-
-        .glass-btn.gold-intent {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-        .glass-btn.gold-intent:hover {
-            box-shadow: 0 12px 30px var(--gold-glow), inset 0 1px 1px rgba(255,255,255,0.5);
-        }
-
-        /* --- iOS Floating Navigation Dock --- */
+        /* --- iOS Navigation Floating Dock --- */
         #dock-nav {
             position: fixed;
-            top: 24px; left: 50%;
-            transform: translateX(-50%) translateY(-130px);
-            width: 92%;
-            max-width: 1100px;
-            padding: 14px 32px;
+            top: 20px; left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 14px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-radius: 100px;
-            animation: slideDownDock 1.1s var(--ios-curve) forwards 2.3s;
         }
-
         .nav-logo {
             font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--text-main);
             text-decoration: none;
         }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 10px 18px;
+            padding: 10px 20px;
             border-radius: 100px;
-            transition: color 0.3s var(--ios-curve), background 0.3s var(--ios-curve), transform 0.3s var(--fluid-bounce);
+            transition: color 0.3s, background 0.3s;
         }
-
         .nav-links a:hover {
             color: var(--text-main);
-            background: rgba(255, 255, 255, 0.45);
-            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
         }
 
-        .theme-toggle-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            width: 38px;
-            height: 38px;
-            transition: transform 0.4s var(--fluid-bounce), background-color 0.3s;
-        }
-        .theme-toggle-btn:hover { transform: scale(1.08) rotate(10deg); background: rgba(255,255,255,0.45); }
-
-        /* --- Sub-Layer Fluid Plasma Orbs --- */
+        /* --- Ambient Flowing Plasma Canvas --- */
         .plasma-backdrop {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -301,572 +179,585 @@
         .plasma-orb {
             position: absolute;
             border-radius: 50%;
-            mix-blend-mode: multiply;
-            filter: blur(100px);
-            opacity: 0.55;
-            animation: seamlessFloat 22s infinite alternate ease-in-out;
-            will-change: transform;
+            filter: blur(120px);
+            opacity: 0.45;
+            animation: seamlessFloat 25s infinite alternate ease-in-out;
         }
-        [data-theme="dark"] .plasma-orb { opacity: 0.22; mix-blend-mode: screen; filter: blur(130px); }
+        .orb-1 { width: 700px; height: 700px; background: #d3e4ff; top: -10%; left: -5%; }
+        .orb-2 { width: 800px; height: 800px; background: #faebd2; bottom: -15%; right: -5%; animation-delay: -6s; }
 
-        .orb-alpha { width: 650px; height: 650px; background: var(--liquid-fluid-1); top: -15%; left: -10%; animation-delay: 0s; }
-        .orb-beta { width: 750px; height: 750px; background: var(--liquid-fluid-2); bottom: -20%; right: -5%; animation-delay: -5s; }
-        .orb-gamma { width: 550px; height: 550px; background: var(--liquid-fluid-1); top: 35%; right: 10%; animation-delay: -10s; }
-
-        /* --- Interface Section Architecture --- */
+        /* --- Sections Master Layout --- */
         section {
-            position: relative;
-            z-index: 5;
-            scroll-margin-top: 130px;
-            width: 100%;
+            padding: 120px 24px 40px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-
-        /* Hero Context Canopy */
+        
         #home {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 200px 24px 100px 24px;
+            padding-top: 180px;
         }
-
-        .hero-canvas {
-            max-width: 950px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: initialReveal 1.4s var(--ios-curve) forwards 2.4s;
-        }
-
-        .hero-tagline {
+        .hero-tag {
             font-size: 0.85rem;
-            letter-spacing: 9px;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 30px;
-            font-weight: 600;
+            color: var(--gold-accent);
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-
         .hero-title {
             font-family: 'Cinzel', serif;
-            font-size: calc(2.4rem + 2.6vw);
-            font-weight: 400;
-            line-height: 1.15;
-            margin-bottom: 35px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-desc {
-            font-size: calc(1rem + 0.22vw);
-            color: var(--text-muted);
-            max-width: 680px;
-            margin: 0 auto 54px auto;
-            line-height: 1.85;
-            font-weight: 300;
-        }
-
-        /* Layout Grids */
-        .content-container {
-            padding: 110px 24px;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-
-        .about-split-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
-        }
-
-        /* Image Mask Containers (Steady & Smooth Scaling) */
-        .media-viewport {
-            position: relative;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: var(--steady-shadow);
-            background: rgba(0,0,0,0.02);
-            will-change: transform;
-            transition: transform 0.6s var(--ios-curve);
-        }
-        .media-viewport:hover {
-            transform: scale(1.015);
-        }
-
-        .about-img, .executive-img {
-            width: 100%;
-            height: 100%;
-            min-height: 540px;
-            max-height: 640px;
-            object-fit: cover;
-            display: block;
-            will-change: transform;
-            transition: transform 0.8s var(--ios-curve);
-        }
-        .media-viewport:hover .about-img,
-        .media-viewport:hover .executive-img {
-            transform: scale(1.03);
-        }
-
-        .about-text-panel, .executive-text-panel {
-            padding: calc(40px + 1.5vw);
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: calc(1.8rem + 0.7vw);
+            font-size: calc(2.5rem + 2vw);
+            color: var(--text-main);
+            line-height: 1.2;
             margin-bottom: 30px;
-            font-weight: 400;
-            line-height: 1.25;
-            letter-spacing: -0.5px;
         }
 
-        .section-desc {
-            color: var(--text-muted);
-            line-height: 1.9;
-            font-size: 1.02rem;
-            margin-bottom: 35px;
-            font-weight: 400;
-        }
-
-        /* Performance Specs Subdivision */
-        .specs-subgrid {
+        /* --- About Founder Section --- */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
             margin-top: 40px;
         }
-
-        .spec-unit {
-            border-left: 2px solid var(--gold);
-            padding-left: 22px;
+        .founder-img-wrapper {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--steady-shadow);
+            border: 1px solid var(--glass-border);
         }
-
-        .spec-unit h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
-            font-weight: 600;
+        .founder-img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 580px;
+            object-fit: cover;
+            display: block;
         }
-
-        .spec-unit p {
-            font-size: 0.88rem;
+        .about-details-panel {
+            padding: 50px;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 25px;
+        }
+        .about-p {
+            font-size: 1.05rem;
+            line-height: 1.8;
             color: var(--text-muted);
-            line-height: 1.6;
+            margin-bottom: 20px;
         }
-
-        /* Executive Portrait Custom Styling Blocks */
-        .signature-container {
-            margin-top: 45px;
-            border-top: 1px solid rgba(124, 91, 11, 0.12);
-            padding-top: 32px;
-        }
-        [data-theme="dark"] .signature-container { border-top-color: rgba(255,255,255,0.08); }
-
-        .signature-name {
+        .founder-sign h4 {
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
+            margin-top: 30px;
             color: var(--text-main);
-            letter-spacing: 1px;
         }
-        .signature-rank {
-            font-size: 0.8rem;
-            color: var(--gold);
+        .founder-sign p {
+            font-size: 0.85rem;
+            color: var(--gold-accent);
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-top: 8px;
-            font-weight: 600;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
-        /* Lands Portfolios Matrix */
-        .center-heading-block {
+        /* --- OLX Luxury Land Matrix Grid --- */
+        .matrix-title-block {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
-
-        .showcase-matrix {
+        .olx-land-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 48px;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 30px;
         }
-
-        .portfolio-card {
+        .land-card {
             display: flex;
             flex-direction: column;
-            will-change: transform;
-            transition: transform 0.6s var(--ios-curve);
+            border-radius: 20px;
+            background: var(--glass-bg);
+            transition: transform 0.4s var(--ios-curve);
         }
-        .portfolio-card:hover {
-            transform: translateY(-6px);
+        .land-card:hover {
+            transform: translateY(-5px);
         }
-
-        .card-header-viewport {
+        .land-img-box {
             width: 100%;
-            height: 380px;
+            height: 230px;
             overflow: hidden;
-            border-radius: 32px 32px 0 0;
+            border-radius: 20px 20px 0 0;
             position: relative;
         }
-
-        .card-header-viewport img {
+        .land-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            will-change: transform;
-            transition: transform 0.9s var(--ios-curve);
+            transition: transform 0.6s ease;
+        }
+        .land-card:hover .land-img-box img {
+            transform: scale(1.05);
+        }
+        
+        /* Premium Badging overlay */
+        .premium-badge {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            color: var(--text-main);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .portfolio-card:hover .card-header-viewport img {
-            transform: scale(1.04);
-        }
-
-        .card-details {
-            padding: 40px;
-            border-top: none;
-            border-radius: 0 0 32px 32px;
-            flex-grow: 1;
+        /* OLX Specific Text Alignment Layer */
+        .land-info-box {
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-grow: 1;
         }
-
-        .card-details h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.45rem;
-            margin-bottom: 18px;
-            font-weight: 400;
+        .land-price {
+            font-size: 1.5rem;
+            font-weight: 750;
+            color: var(--price-tag);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
         }
-
-        /* Contact Gateway Structures */
-        #contact {
-            padding: 110px 24px 180px 24px;
-            max-width: 880px;
-            margin: 0 auto;
+        .land-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        .contact-card-box {
-            padding: calc(50px + 2vw);
-            text-align: center;
+        .olx-meta-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 12px;
+            margin-top: auto;
         }
-
-        .communication-pipelines {
-            margin: 54px 0;
+        .meta-unit {
             display: flex;
             flex-direction: column;
-            gap: 32px;
         }
-
-        .pipeline-row {
-            font-size: 1.15rem;
-        }
-
-        .pipeline-row span {
-            display: block;
-            font-size: 0.8rem;
+        .meta-label {
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            color: #556073;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        .meta-value {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* --- Footer Context --- */
+        footer {
+            text-align: center;
+            padding: 80px 24px;
             color: var(--text-muted);
-            margin-bottom: 12px;
-            font-weight: 600;
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: var(--liquid-blur);
         }
 
-        .pipeline-row a {
-            color: var(--gold);
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-        .pipeline-row a:hover { opacity: 0.75; }
-
-        /* --- Smooth Scroll Reveal Classes (Inertial Pipeline) --- */
-        .smooth-reveal {
+        /* --- Interactive Reveal Engine --- */
+        .scroll-reveal {
             opacity: 0;
-            transform: translateY(40px);
-            will-change: transform, opacity;
-            transition: transform 0.9s var(--ios-curve), opacity 0.9s var(--ios-curve);
+            transform: translateY(30px);
+            transition: transform 0.8s var(--ios-curve), opacity 0.8s var(--ios-curve);
         }
-        .smooth-reveal.active {
+        .scroll-reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- Keyframe Engines --- */
-        @keyframes initialReveal {
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes slideDownDock {
-            to { transform: translateX(-50%) translateY(0); }
-        }
-        @keyframes curtainDismiss {
-            to { opacity: 0; visibility: hidden; }
-        }
-        @keyframes lineStance {
-            to { width: 280px; }
-        }
+        /* --- Dynamic Animations --- */
+        @keyframes curtainDismiss { to { opacity: 0; visibility: hidden; } }
         @keyframes seamlessFloat {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(30px, -50px) scale(1.02) rotate(120deg); }
-            66% { transform: translate(-20px, 40px) scale(0.98) rotate(240deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -40px) scale(1.05); }
+            100% { transform: translate(0, 0) scale(1); }
         }
 
-        /* --- Adaptive Layout Breakpoints --- */
+        /* Responsive Adapters */
         @media (max-width: 900px) {
-            .about-split-grid { grid-template-columns: 1fr; gap: 48px; }
-            .about-img, .executive-img { min-height: 400px; max-height: 480px; }
-            #dock-nav { padding: 12px 24px; width: 94%; }
-            .nav-links { gap: 14px; }
-            .nav-links a { font-size: 0.75rem; padding: 8px 14px; }
-        }
-
-        @media (max-width: 550px) {
-            .nav-links a { display: none; }
-            .nav-links a[href="#contact"] { display: inline-flex; }
-            .specs-subgrid { grid-template-columns: 1fr; }
-            .contact-card-box { padding: 45px 20px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-details-panel { padding: 30px; }
+            #dock-nav { padding: 12px 24px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Smooth Curtain Loading Stage -->
+    <!-- Liquid Glass Curtain Loader -->
     <div id="loader-curtain">
-        <div class="loader-logo">
-            NAITRIKA
-            <span>Real Estate</span>
-        </div>
+        <div class="loader-logo">NAITRIKA</div>
         <div class="loader-bar"></div>
     </div>
 
-    <!-- Apple iOS Styled Floating Dock System -->
+    <!-- Transparent Fixed Dock System -->
     <nav id="dock-nav" class="glass-panel">
         <a href="#home" class="nav-logo">NAITRIKA</a>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#executive">Leadership</a>
-            <a href="#lands">Lands</a>
-            <a href="#contact">Contact</a>
-            
-            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Adaptive Theme">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
+            <a href="#about">About Founder</a>
+            <a href="#portfolio">Land Catalog</a>
         </div>
     </nav>
 
-    <!-- Moving Sub-Surface Liquid Organics -->
+    <!-- Sub-surface Chromatic Engine -->
     <div class="plasma-backdrop">
-        <div class="plasma-orb orb-alpha"></div>
-        <div class="plasma-orb orb-beta"></div>
-        <div class="plasma-orb orb-gamma"></div>
+        <div class="plasma-orb orb-1"></div>
+        <div class="plasma-orb orb-2"></div>
     </div>
 
-    <!-- Landing Structural Masthead -->
+    <!-- Entrance Section -->
     <section id="home">
-        <div class="hero-canvas">
-            <p class="hero-tagline">Architectural Masterpieces</p>
-            <h1 class="hero-title">Elevating Premium Living Spaces</h1>
-            <p class="hero-desc">Bespoke land developments and luxury estates curated with rigorous structural integrity and elite modern design principles.</p>
-            <a href="#lands" class="glass-btn">Explore Portfolio</a>
+        <div>
+            <p class="hero-tag">Acreage & Luxury Estates</p>
+            <h1 class="hero-title">High-Readability Transparent Architecture</h1>
         </div>
     </section>
 
-    <!-- Enterprise Studio Module -->
-    <section id="about" class="smooth-reveal">
-        <div class="content-container about-split-grid">
-            <div class="media-viewport">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Bespoke Luxury Architecture" class="about-img">
+    <!-- About Founder Module -->
+    <section id="about" class="scroll-reveal">
+        <div class="about-grid">
+            <div class="founder-img-wrapper">
+                <!-- Premium High-Resolution Portrait Placeholder -->
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Founder & Managing Director">
             </div>
-            
-            <div class="about-text-panel glass-panel">
-                <p class="hero-tagline" style="margin-bottom:10px;">The Single-Roof Workflow</p>
-                <h2 class="section-title">Design & Engineering Unified</h2>
-                <p class="section-desc">
-                    At Naitrika Real Estate, we bridge structural engineering with haute interior decoration under one single studio roof. This eliminates disconnects between primary construction plans and final spatial finishes.
+            <div class="about-details-panel glass-panel">
+                <p class="hero-tag">Executive Leadership</p>
+                <h2 class="section-heading">Darshan Gowda</h2>
+                <p class="about-p">
+                    Welcome to Naitrika Real Estate. Founded under a clear design principle by Darshan Gowda, our company establishes structural safety alongside absolute transparency in prime land acquisition.
                 </p>
-
-                <div class="specs-subgrid">
-                    <div class="spec-unit">
-                        <h4>Structural Base</h4>
-                        <p>Grade-A seismic resistant concrete & reinforced steel frameworks.</p>
-                    </div>
-                    <div class="spec-unit">
-                        <h4>Bespoke Interior</h4>
-                        <p>Custom ceiling layouts, internal lighting plans, and premium surfaces handled in-house.</p>
-                    </div>
-                    <div class="spec-unit">
-                        <h4>Acoustics</h4>
-                        <p>Double-glazed thermal glass units and high-performance noise absorption.</p>
-                    </div>
-                    <div class="spec-unit">
-                        <h4>Eco Engineering</h4>
-                        <p>Automated climatic controls and rainwater management seamlessly integrated.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership Blueprint Configuration (Steady Profile Overlay) -->
-    <section id="executive" class="smooth-reveal">
-        <div class="content-container about-split-grid">
-            <div class="executive-text-panel glass-panel">
-                <p class="hero-tagline" style="margin-bottom:10px;">Founding Vision</p>
-                <h2 class="section-title">Crafting Legacies From The Ground Up</h2>
-                <p class="section-desc">
-                    True luxury isn't just assembled; it is structurally calculated and masterfully engineered. Our pursuit centers on securing prime topography and aligning it with timeless aesthetics that hold multi-generational value.
+                <p class="about-p">
+                    We unify real estate investments with legal tracking protocols and engineered land contour plotting to ensure your legacy holdings remain verified, pristine, and continuously appreciating over generations.
                 </p>
-                <p class="section-desc">
-                    Under strict design oversight, each development represents a secure, high-end ecosystem balancing raw natural layouts with precise architectural blueprints.
-                </p>
-                
-                <div class="signature-container">
-                    <h3 class="signature-name">Darshan Gowda</h3>
-                    <p class="signature-rank">Managing Director & Founder</p>
-                </div>
-            </div>
-            
-            <div class="media-viewport">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80" alt="Darshan Gowda - Managing Director" class="executive-img">
-            </div>
-        </div>
-    </section>
-
-    <!-- Curated Portfolio Arrays -->
-    <section id="lands" class="smooth-reveal">
-        <div class="content-container">
-            <div class="center-heading-block">
-                <p class="hero-tagline">Curated Acquisitions</p>
-                <h2 class="section-title">Premium Holdings & Estates</h2>
-            </div>
-
-            <div class="showcase-matrix">
-                <!-- Estate Element One -->
-                <div class="portfolio-card glass-panel">
-                    <div class="card-header-viewport">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Luminary Pavilion" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <div>
-                            <h3>The Luminary Pavilion</h3>
-                            <p class="section-desc" style="margin-bottom:20px;">Prime real estate featuring panoramic landscape orientation, tailored for comprehensive bespoke custom interior setups built directly during raw construction.</p>
-                        </div>
-                        <a href="#contact" class="glass-btn gold-intent" style="width: 100%;">Enquire Details</a>
-                    </div>
-                </div>
-
-                <!-- Estate Element Two -->
-                <div class="portfolio-card glass-panel">
-                    <div class="card-header-viewport">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Obsidian Atrium" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <div>
-                            <h3>Obsidian Vista Holdings</h3>
-                            <p class="section-desc" style="margin-bottom:20px;">Exclusive plot collection offering raw natural topography with foundational retaining walls and utility mains pre-engineered to perfection.</p>
-                        </div>
-                        <a href="#contact" class="glass-btn gold-intent" style="width: 100%;">Enquire Details</a>
-                    </div>
+                <div class="founder-sign">
+                    <h4>Darshan Gowda</h4>
+                    <p>Founder & Managing Director</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Gateway Area -->
-    <section id="contact" class="smooth-reveal">
-        <div class="contact-card-box glass-panel">
-            <p class="hero-tagline" style="margin-bottom:10px;">Private Consultation</p>
-            <h2 class="section-title">Begin Your Blueprint</h2>
-            <p class="section-desc">Connect with our dedicated site developers and interior spatial architects.</p>
+    <!-- OLX Property Catalog Configuration Matrix -->
+    <section id="portfolio" class="scroll-reveal">
+        <div class="matrix-title-block">
+            <p class="hero-tag">Verified Land Inventory</p>
+            <h2 class="section-heading">Premium Allocations</h2>
+        </div>
+
+        <div class="olx-land-grid">
             
-            <div class="communication-pipelines">
-                <div class="pipeline-row">
-                    <span>Direct Concierge Desk</span>
-                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+            <!-- Card 1 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=500&q=80" alt="Land Image">
                 </div>
-                <div class="pipeline-row">
-                    <span>Digital Submissions</span>
-                    <a href="mailto:concierge@naitrika.com">concierge@naitrika.com</a>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 4,50,00,000</div>
+                    <div class="land-title">Elysian Crest Valley Acres</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">120 x 80 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">9,600 sq ft</span></div>
+                    </div>
                 </div>
             </div>
-            
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px;">
-                © 2026 Naitrika Real Estate. All Architectural Planning, Structural Contracting, and Interior Layouts Handled Under One Roof.
-            </p>
+
+            <!-- Card 2 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 2,80,00,000</div>
+                    <div class="land-title">Obsidian Meadow Plots</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">100 x 60 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">6,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Premium</span>
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 7,20,00,000</div>
+                    <div class="land-title">Highland Ridge Premium</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">150 x 120 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">18,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 3,90,00,000</div>
+                    <div class="land-title">Amber Woods Development</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">110 x 70 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">7,700 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 1,95,00,000</div>
+                    <div class="land-title">Glencoe Green Fields</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">80 x 50 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">4,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">New Launch</span>
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 9,50,00,000</div>
+                    <div class="land-title">Alpine Vista Domain</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">200 x 150 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">30,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 5,10,00,000</div>
+                    <div class="land-title">Serenity Springs Enclave</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">130 x 90 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">11,700 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Premium</span>
+                    <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 6,40,00,000</div>
+                    <div class="land-title">Summit View Ridge Plots</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">140 x 100 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">14,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 3,25,00,000</div>
+                    <div class="land-title">Palisades Creek Matrix</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">100 x 75 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">7,500 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 4,80,00,000</div>
+                    <div class="land-title">Silver Lake Meadowlands</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">125 x 85 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">10,625 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Premium</span>
+                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 8,10,00,000</div>
+                    <div class="land-title">Equinox Horizon Plateau</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">180 x 110 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">19,800 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 2,40,00,000</div>
+                    <div class="land-title">Sylvan Crest Woodlands</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">90 x 60 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">5,400 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 5,70,00,000</div>
+                    <div class="land-title">Solitude Valley Estate</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">140 x 95 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">13,300 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Premium</span>
+                    <img src="https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 6,90,00,000</div>
+                    <div class="land-title">Cascade Stream Holdings</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">150 x 110 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">16,500 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="land-card glass-panel">
+                <div class="land-img-box">
+                    <span class="premium-badge">Verified</span>
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=80" alt="Land Image">
+                </div>
+                <div class="land-info-box">
+                    <div class="land-price">₹ 3,10,00,000</div>
+                    <div class="land-title">Verdant Ascent Enclosure</div>
+                    <div class="olx-meta-row">
+                        <div class="meta-unit"><span class="meta-label">Dimensions</span><span class="meta-value">100 x 70 ft</span></div>
+                        <div class="meta-unit" style="text-align:right;"><span class="meta-label">Total Area</span><span class="meta-value">7,000 sq ft</span></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- JavaScript Real-Time High-Fidelity Physics Handlers -->
+    <!-- Footer Area -->
+    <footer>
+        <p>© 2026 Naitrika Real Estate. Ultra-Glass Structural Interface. All Land Portfolio Assets Registered Privately.</p>
+    </footer>
+
+    <!-- High Fidelity Physics Scripts -->
     <script>
-        // Smooth Adaptive Palette Toggler
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            
-            if(newTheme === 'light') {
-                themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-            } else {
-                themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-            }
-        });
-
-        // Steady Buttery Glass Real-Time Reflection Tracker
-        const elementsToTrack = document.querySelectorAll('.glass-panel');
-        
+        // Buttery Smooth Reflection Mapping
+        const structuralPanels = document.querySelectorAll('.glass-panel');
         document.addEventListener('mousemove', (e) => {
-            elementsToTrack.forEach(item => {
-                const boundary = item.getBoundingClientRect();
-                const pointerX = e.clientX - boundary.left;
-                const pointerY = e.clientY - boundary.top;
-                
-                const percentageX = (pointerX / boundary.width) * 100;
-                const percentageY = (pointerY / boundary.height) * 100;
-                
-                item.style.setProperty('--specular-x', `${percentageX}%`);
-                item.style.setProperty('--specular-y', `${percentageY}%`);
+            structuralPanels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--specular-x', `${(x / rect.width) * 100}%`);
+                panel.style.setProperty('--specular-y', `${(y / rect.height) * 100}%`);
             });
         });
 
-        // Intercept standard jumps to ensure buttery-smooth deceleration profile on local links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Intercept local anchor links to bypass native browser jumps
+        document.querySelectorAll('a[href^="#"]').forEach(lnk => {
+            lnk.addEventListener('click', function(e) {
                 e.preventDefault();
-                const destination = document.querySelector(this.getAttribute('href'));
-                if(destination) {
-                    destination.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                const node = document.querySelector(this.getAttribute('href'));
+                if(node) node.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Adaptive Inertial Reveal Pipeline (Intersection Observer API)
-        const transitionSettings = {
-            threshold: 0.08,
-            rootMargin: "0px 0px -30px 0px"
-        };
-
-        const appearanceObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); 
+        // Intersection Reveal Logic for Scroll Animations
+        const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -20px 0px" };
+        const viewObserver = new IntersectionObserver((elements, self) => {
+            elements.forEach(item => {
+                if(item.isIntersecting) {
+                    item.target.classList.add('visible');
+                    self.unobserve(item.target);
                 }
             });
-        }, transitionSettings);
+        }, observerOptions);
 
-        document.querySelectorAll('.smooth-reveal').forEach(node => {
-            appearanceObserver.observe(node);
-        });
+        document.querySelectorAll('.scroll-reveal').forEach(el => viewObserver.observe(el));
     </script>
 </body>
 </html>
+
+```
